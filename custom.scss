@@ -1,0 +1,664 @@
+/* This must be the first line of the custom.css with other import rules */
+/* @import url("https://wirtzdan.github.io/logseq-paper-theme/custom.css"); */
+/* @import url('https://cdn.jsdelivr.net/gh/gavinmn/logseq-luma/custom.css'); */
+
+$arc-card-gap: 12px;
+$arc-card-corner-radius: 12px;
+$arc-action-bar-height: 32px;
+$arc-transition-time: 150ms;
+$arc-card-shadow: 0px 0.5px 1.75px rgba(0, 0, 0, 0.039), 0px 1.85px 6.25px rgba(0, 0, 0, 0.19);
+$arc-sidebar-gap: 4px;
+$arc-content-max-width: 85ch;
+$arc-content-padding-desktop: 48px;
+$arc-content-padding-mobile: 2rem;
+
+@mixin devices ($breakpoint) { //the name of the mixin is devices
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: 640px) {
+      @content;
+    }
+  }
+}
+
+@mixin row {
+  display: flex;
+}
+
+@mixin column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin fill($fixed-width: -webkit-fill-available, $fixed-height: -webkit-fill-available) {
+  width: $fixed-width;
+  max-width: $fixed-width;
+  height: $fixed-height;
+  max-height: $fixed-height;
+}
+
+@mixin parent(
+  $direction: row,
+  $top: 0, 
+  $left: $top, 
+  $bottom: $top, 
+  $right: $left, 
+  $gap: 0, 
+) {
+  margin: 0;
+  padding-top: $top;
+  padding-left: $left;
+  padding-bottom: $bottom;
+  padding-right: $right;
+  display: flex;
+  flex-direction: $direction;
+  gap: $gap;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+@mixin fix-child-shadows($offset: 16px) {
+  margin: -$offset;
+  padding: $offset;
+}
+
+/* You can toggle these variables between "block" (Visible) and "none" (Hidden) to show or hide different elements of the UI */
+:root {
+  --display-recent-pages: block;
+  --display-search-button: flex;
+  --display-arrow-navigation: block;
+  --display-help-button: block;
+  --ct-highlight-color: #f4d909;
+  --ct-highlight-color-text: black;
+  --ls-font-family: "Inter", sans-serif;
+  --ls-page-text-size: 16px;
+  --ls-headbar-height: $arc-action-bar-height;
+  --ls-main-content-max-width: 100%;
+  --ls-left-sidebar-width: calc(256px - 24px);
+}
+
+.white-theme {
+  --ls-primary-background-color: #ffffff;
+  --ls-secondary-background-color: #f8f8f8;
+  --ls-tertiary-background-color: rgba(0, 0, 0, 0.07);
+  --ls-quaternary-background-color: #e8e8e8;
+  --ls-glass-background-color: rgba(255, 255, 255, 0.85);
+  --ls-secondary-text-color: rgba(0, 0, 0, 0.5);
+  --ls-border-color: rgba(0, 0, 0, 0.12);
+  --ls-page-checkbox-color: transparent;
+  --ls-page-checkbox-checked-color: rgba(47, 128, 237, 1);
+  --ls-page-checkbox-border-color: rgba(0, 0, 0, 0.25);
+}
+
+@media (min-width: 1600px) {
+  :root {
+	/* --ls-main-content-max-width: 1000px; */
+	--ls-main-content-max-width: 100%;
+  }
+}
+
+/* ----------------------- SHELL ----------------------- */
+#app-container {
+  /* background: conic-gradient(from 180deg at 50% 50%, rgba(195, 232, 248, 0.5) 0deg, rgba(213, 239, 219, 0.5) 195deg, rgb(195, 232, 248, 0.5) 360deg), #FFFFFF; */
+  background: rgba(0, 0, 0, 0.05);
+  @include parent(row, $arc-card-gap, $gap: $arc-card-gap);
+  height: 100vh;
+
+  #left-container {
+    @include parent(column, $gap: $arc-card-gap);
+    @include fill;
+    &.overflow-hidden { overflow: inherit; }
+
+    #head {
+      @include row;
+      
+      .l, .r {
+        @include parent(row);
+      }
+    }
+
+    #main-container {
+      @include row;
+      @include parent(row, $gap: $arc-card-gap);
+      @include fix-child-shadows;
+      transition: transform $arc-transition-time;
+      background-color: transparent;
+
+      #main-content-container {
+        @include fill;
+        @include parent;
+        background-color: var(--ls-primary-background-color);
+        border-radius: $arc-card-corner-radius;
+        box-shadow: $arc-card-shadow;
+      
+        .cp__sidebar-main-content > .mx-auto {
+          @include fill;
+          @include parent(column);
+          align-items: center;
+          & > div {
+            width: -webkit-fill-available;
+          }
+        }
+      }
+    }
+  }
+}
+
+.ls-left-sidebar-open .l {
+  justify-content: space-between;
+}
+
+#head > .flex {
+    /* opacity: 0%; */
+    /* transition: opacity 150ms ease-in-out; */
+}
+
+cp_header > .r {
+  padding-right: 0px;
+}
+
+#head:hover > .flex {
+    /* opacity: 100%; */
+}
+
+#head {
+    /* height: $arc-card-gap; */
+    /* transition: height 150ms ease-in-out; */
+}
+
+#head:hover {
+    /* height: calc(var(--ls-headbar-height) + var(--ls-headbar-inner-top-padding)); */
+}
+
+/* You can also add other styles below to override the default theme values */
+
+.tippy-tooltip > .tippy-tooltip-content {
+  border: 1px solid var(--ls-primary-text-color);
+}
+
+hr {
+    margin: 0.8em;
+}
+
+.github-alert {
+  display: none;
+}
+
+.p-2.rounded-md.shadow-xs.bg-base-3.flex.flex-col.sync-content {
+    font-size: .5em;
+}
+
+.block-properties {
+  border-radius: 4px;
+}
+
+.shadow-md, #left-sidebar .item.active {
+  box-shadow: $arc-card-shadow;
+}
+
+@media (min-width: 480px) {
+  .cp__sidebar-left-layout.is-open + #main-content-container {
+    margin: 0 auto;
+  }
+}
+
+#app-single-container {
+  display: none;
+}
+
+body.is-pdf-active #app-container {
+  padding-left: $arc-card-gap;
+  #app-single-container {
+    display: block;
+    order: -1;
+  }
+}
+
+/* ----------------------- LEFT SIDEBAR ----------------------- */
+#left-sidebar {
+  @include parent(column);
+  display: none;
+  position: inherit;
+
+  .left-sidebar-inner {
+    @include fill;
+    @include parent(column, $gap: $arc-sidebar-gap);
+    @include fix-child-shadows;
+    background-color: transparent;
+
+    & > .flex {
+      @include fill($fixed-width: fit-content);
+      @include parent(column, $gap: $arc-sidebar-gap);
+      @include fix-child-shadows;
+
+      nav.flex { //sidebar items
+        @include fill($fixed-width: var(--ls-left-sidebar-width));
+        @include parent(column-reverse, $gap: $arc-sidebar-gap);
+        justify-content: space-between;
+
+        .nav-header {
+          @include parent(column, $gap: $arc-sidebar-gap);
+        }
+
+        .ui__dropdown-trigger {
+          @include parent(column-reverse);
+
+          .graphs {
+            width: 100%;
+          
+            #repo-switch {
+              display: flex;
+              align-items: center;
+              width: 100%;
+              justify-content: space-between;
+            }
+          }
+
+          .dropdown-wrapper {
+            margin-top: 0px;
+            min-width: 100%;
+            margin-bottom: 3rem;
+          }
+        }
+      }
+
+      .favorites {
+        display: none;
+      }
+      
+      .recent {
+        display: none;
+      }
+
+      nav.new-page {
+        @include fill($fixed-height: fit-content);
+        @include parent;
+        position: relative;
+        
+        .new-page-link {
+          @include fill;
+          background-color: inherit;
+          box-shadow: none;
+          @extend .item; //needed to get hover to work
+
+          .ti-circle-plus { font-size: 16px !important; } //!important needed since it overrides a html style
+        }
+      }
+
+      .item {
+        padding: 12px;
+        color: var(--ls-secondary-text-color);
+        font-weight: 400;
+        border-radius: $arc-card-corner-radius;
+    
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.05);
+          opacity: 1;
+        }
+    
+        &.active {
+          background-color: var(--ls-primary-background-color);
+          color: var(--ls-primary-text-color);
+          font-weight: 600;
+          transition: background-color 0ms;
+        }
+      }
+    }
+  }
+
+  .shade-mask {
+    display: none;
+  }
+
+  &.is-open {
+    @include devices(mobile) {
+      width: calc(var(--ls-left-sidebar-width) + $arc-card-gap);
+    }
+    display: flex;
+  }
+}
+
+.ls-left-sidebar-open { 
+  @include devices(mobile) {
+    --ls-left-sidebar-width: 100%;
+    #app-container #left-container #main-container #main-content-container {
+        display: none;
+    }
+
+    #left-sidebar .left-sidebar-inner .flex {
+      width: -webkit-fill-available;
+      max-width: -webkit-fill-available;
+    }
+  }
+}
+
+/* ----------------------- RIGHT SIDEBAR ----------------------- */
+#right-sidebar {
+  @include fill;
+  @include parent(column);
+  background-color: transparent;
+  display: none;
+  
+  #right-sidebar-container {
+    @include fill;
+    @include parent(column);
+
+    .cp__right-sidebar-scrollable {
+      @include parent(column, $gap: $arc-card-gap);
+      @include fix-child-shadows;
+      overflow-y: scroll;
+
+      .cp__right-sidebar-topbar {
+        @include fill($fixed-height: fit-content);
+        @include parent;
+        background-color: transparent;
+        position: relative;
+      }
+
+      .sidebar-item-list {
+        @include parent(column, $gap: $arc-card-gap);
+        height: max-content;
+        overflow: visible; //allows for entire column to scroll
+
+        .sidebar-item {
+          background-color: var(--ls-primary-background-color);
+          border-radius: $arc-card-corner-radius;
+        }
+      }
+    }
+  }
+
+  &.open {
+    display: flex;
+  }
+}
+
+/* ----------------------- PAGES ----------------------- */
+.page {
+  max-width: $arc-content-max-width;
+}
+
+
+
+/* ----------------------- JOURNAL ----------------------- */
+#journals {
+  .journal-item {
+    @include parent(column);
+    align-items: center;
+    margin: 0px;
+    --journal-focused: 0;
+
+    .journal.page {
+        @include fill($fixed-height: fit-content);
+        max-width: $arc-content-max-width;
+        
+        & > .flex { //title and items
+          @include parent(column, $gap: 16px);
+          
+          .journal-title { 
+            &::before {
+              content: '';
+              display: block;
+              height: 4px;
+              width: 32px;
+              border-radius: 2px;
+              background-color: var(--ls-active-primary-color);
+              opacity: calc((var(--journal-focused) * 0.75) + 0.25);
+            }
+          }
+        }
+    }
+
+    &:focus-within {
+      --journal-focused: 1;
+    }
+  }
+  & > div > .w-full {
+    max-width: 85ch;
+    margin: auto;
+    padding: 48px;
+  }
+}
+
+
+#main-content-container .page {
+  @include parent(column, $arc-content-padding-desktop);
+  @include devices(mobile) { padding: $arc-content-padding-mobile; }
+
+  .title {
+    margin-bottom: 0px;
+  }
+}
+
+
+/* ----------------------- SEARCH ----------------------- */
+.ui__modal-panel {
+  background-color: var(--ls-primary-background-color);
+  background-color: rgba(255, 255, 255, .8);
+  backdrop-filter: blur(10px);
+
+  .panel-content {
+    padding: 0px;
+
+    .cp__palette-main {
+      margin: 0px;
+
+      .input-wrap {
+        border-bottom: solid 1px var(--ls-border-color);
+        height: fit-content;
+      }
+
+      .recent-search {
+        .menu-link {
+          background-color: transparent;
+          &:hover {
+            background-color: var(--ls-menu-hover-color);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ----------------------- TABLES ----------------------- */
+thead th span {
+  color: var(--text-tertiary);
+}
+
+th {
+  border-bottom: 1px solid var(--ls-border-color);
+  padding: 6px 12px;
+  font-size: var(--ls-page-text-size);
+}
+
+td {
+  padding: 8px 12px;
+}
+
+.table-auto {
+    border-radius: 16px;
+    border-collapse: collapse;
+    overflow: hidden;
+    margin: 0px;
+}
+
+table, tr, td, th {
+    border: 1px solid var(--ls-border-color);
+}
+
+.custom-query .overflow-x-auto {
+    overflow-x: auto;
+    margin: 1em 0;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.custom-query > .flex > .initial > div > .flex {
+    margin-top: -1.5rem;
+    justify-content: flex-end;
+}
+
+.custom-query-title {
+    justify-content: flex-start;
+}
+
+
+/* ----------------------- POPUP ----------------------- */
+.tippy-tooltip {
+  background-color: transparent;
+}
+
+.tippy-tooltip > .tippy-tooltip-content {
+  border: 1px solid var(--ls-border-color);
+  background-color: var(--ls-primary-background-color);
+  border: none;
+  border-radius: 12px;
+  box-shadow: $arc-card-shadow;
+}
+
+.tippy-tooltip > .arrow-regular {
+  display: none;
+}
+
+.tippy-wrapper {
+  background: transparent;
+  border-radius: 12px;
+}
+
+/* ----------------------- PDF ----------------------- */
+#pdf-layout-container {
+  &[data-theme=light] { background-color: transparent; }
+  &[data-theme=warm] { background-color: transparent; }
+  &[data-theme=dark] { background-color: transparent; }
+  overflow: visible;
+  height: calc(100% - $arc-action-bar-height - $arc-card-gap);
+  position: relative;
+
+  .extensions__pdf-loader {
+    background-color: transparent;
+
+    .extensions__pdf-viewer-cnt {
+      display: flex;
+      flex-direction: column-reverse;
+
+      .extensions__pdf-toolbar {
+        position: relative;
+        width: 100%;
+        right: initial;
+        padding: 0px;
+        height: fit-content;
+
+        & > .inner {
+
+          & > .buttons {
+            background-color: transparent;
+            width: 100%;
+
+            .button {
+              transition: $arc-transition-time;
+              opacity: 1;
+              margin: 0px;
+              height: 2rem;
+              width: 2rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              &:hover {
+                background-color: var(--ls-tertiary-background-color);
+              }
+            }
+
+            & [title="Outline"] {
+              order: -4;
+            }
+
+            & .pager {
+              order: -3;
+
+            }
+
+            & [title="Document info"] {
+              order: -2;
+            }
+
+            & [title="More settings"] {
+              order: -1;
+              margin-right: auto;
+            }
+
+            & > .button:last-child {  //Close button
+              font-size: 0;
+              &::after {
+                font-size: 18px;
+                content: '\eb55';
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: tabler-icons;
+                speak: none;
+                font-style: normal;
+                font-weight: 400;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+                -webkit-font-smoothing: antialiased;
+              }
+            }
+          }
+        }
+      }
+
+      .extensions__pdf-viewer {
+        // position: relative;
+        top: $arc-action-bar-height + $arc-card-gap; //TODO: make equal to header height
+        background-color: var(--ls-primary-background-color);
+        box-shadow: $arc-card-shadow;
+        border-radius: $arc-card-corner-radius;
+      }
+    }
+  }
+}
+
+/* ----------------------- BLOCKS ----------------------- */
+.editor-inner .uniline-block:is(.h1,.h2), .ls-block :is(h1,h2) {
+  border-bottom: none;
+}
+
+.form-checkbox {
+  border: solid 2px var(--ls-page-checkbox-border-color);
+  border-radius: 2px;
+  &:checked {
+    background-color: var(--ls-page-checkbox-checked-color);
+  }
+}
+
+h1 a.tag, .tag {
+  font-size: inherit;
+}
+
+.marker-switch.TODO {
+  display: none;
+}
+
+
+/* ----------------------- MISC ----------------------- */
+
+.sidebar-item > .flex {
+  gap: 1em;
+}
+
+.button:hover {
+  background-color: var(--ls-tertiary-background-color);
+}
+
+/* hide scrollbars */
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  border: 16px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
