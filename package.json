@@ -1,0 +1,24 @@
+{
+    "name": "Arc Theme",
+    "author": "@andyburris",
+    "version": "0.1",
+    "description": "A Logseq theme based on Arc by The Browser Company",
+    "logseq": {
+      "themes": [
+        {
+          "name": "Arc Light",
+          "url": "./custom.css",
+          "description": "A light Logseq theme based on Arc by The Browser Company",
+          "mode": "light"
+        },
+        {
+          "name": "Arc Dark",
+          "url": "./custom.css",
+          "description": "A dark Logseq theme based on Arc by The Browser Company",
+          "mode": "dark"
+        }
+      ],
+      "id": "arc-theme",
+      "icon": "./arc-icon.png"
+    }
+  }
