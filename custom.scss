@@ -63,6 +63,7 @@ $arc-content-padding-mobile: 2rem;
   --display-search-button: flex;
   --display-arrow-navigation: block;
   --display-help-button: block;
+  --display-pdf-arrows: none;
   --ct-highlight-color: #f4d909;
   --ct-highlight-color-text: black;
   --ls-font-family: "Inter", sans-serif;
@@ -79,6 +80,21 @@ $arc-content-padding-mobile: 2rem;
   --ls-quaternary-background-color: #e8e8e8;
   --ls-glass-background-color: rgba(255, 255, 255, 0.85);
   --ls-secondary-text-color: rgba(0, 0, 0, 0.5);
+  --ls-tertiary-text-color: rgba(0, 0, 0, 0.25);
+  --ls-border-color: rgba(0, 0, 0, 0.12);
+  --ls-page-checkbox-color: transparent;
+  --ls-page-checkbox-checked-color: rgba(47, 128, 237, 1);
+  --ls-page-checkbox-border-color: rgba(0, 0, 0, 0.25);
+}
+
+.dark-theme {
+  --ls-primary-background-color: #272727;
+  --ls-secondary-background-color: #121212;
+  --ls-tertiary-background-color: rgba(0, 0, 0, 0.07);
+  --ls-quaternary-background-color: #e8e8e8;
+  --ls-glass-background-color: rgba(255, 255, 255, 0.85);
+  --ls-secondary-text-color: rgba(255, 255, 255, 0.5);
+  --ls-tertiary-text-color: rgba(255, 255, 255, 0.25);
   --ls-border-color: rgba(0, 0, 0, 0.12);
   --ls-page-checkbox-color: transparent;
   --ls-page-checkbox-checked-color: rgba(47, 128, 237, 1);
@@ -457,7 +473,7 @@ body.is-pdf-active #app-container {
 
 /* ----------------------- TABLES ----------------------- */
 thead th span {
-  color: var(--text-tertiary);
+  color: var(--ls-tertiary-text-color);
 }
 
 th {
@@ -570,7 +586,24 @@ table, tr, td, th {
 
             & .pager {
               order: -3;
+              
+              .nu {
+                opacity: 1;
+                gap: 4px;
+                input {
+                  border-radius: 4px;
+                  background-color: var(--ls-tertiary-background-color);
+                  color: var(--ls-secondary-text-color);
+                }
+                small {
+                  font-size: 100%;
+                  color: var(--ls-tertiary-text-color);
+                }
+              }
 
+              & > .ct {
+                display: var(--display-pdf-arrows);
+              }
             }
 
             & [title="Document info"] {
@@ -611,6 +644,10 @@ table, tr, td, th {
         background-color: var(--ls-primary-background-color);
         box-shadow: $arc-card-shadow;
         border-radius: $arc-card-corner-radius;
+
+        .page {
+          max-width: inherit; //undoes the max-width for real .page
+        }
       }
     }
   }
