@@ -71,34 +71,62 @@ $arc-content-padding-mobile: 2rem;
   --ls-headbar-height: $arc-action-bar-height;
   --ls-main-content-max-width: 100%;
   --ls-left-sidebar-width: calc(256px - 24px);
+  --ls-tag-text-opacity: 1;
 }
 
-.white-theme {
-  --ls-primary-background-color: #ffffff;
-  --ls-secondary-background-color: #f8f8f8;
-  --ls-tertiary-background-color: rgba(0, 0, 0, 0.07);
-  --ls-quaternary-background-color: #e8e8e8;
-  --ls-glass-background-color: rgba(255, 255, 255, 0.85);
-  --ls-secondary-text-color: rgba(0, 0, 0, 0.5);
-  --ls-tertiary-text-color: rgba(0, 0, 0, 0.25);
-  --ls-border-color: rgba(0, 0, 0, 0.12);
-  --ls-page-checkbox-color: transparent;
-  --ls-page-checkbox-checked-color: rgba(47, 128, 237, 1);
-  --ls-page-checkbox-border-color: rgba(0, 0, 0, 0.25);
+.white-theme, html[data-theme=light] {
+  --arc-background-shell: #F2F2F2;
+  --arc-background-card: #FFFFFF;
+  --arc-background-overlay: rgba(0, 0, 0, 0.05);
+  --arc-background-glass: rgba(255, 255, 255, 0.85);
+  --arc-content-primary: rgba(0, 0, 0, 0.80);
+  --arc-content-secondary: rgba(0, 0, 0, 0.5);
+  --arc-content-tertiary: rgba(0, 0, 0, 0.25);
+  --arc-content-divider: rgba(0, 0, 0, 0.12);
+  --arc-accent-primary: hsla(206, 75%, 50%, 0.98); //9
 }
 
-.dark-theme {
-  --ls-primary-background-color: #272727;
-  --ls-secondary-background-color: #121212;
-  --ls-tertiary-background-color: rgba(0, 0, 0, 0.07);
-  --ls-quaternary-background-color: #e8e8e8;
-  --ls-glass-background-color: rgba(255, 255, 255, 0.85);
-  --ls-secondary-text-color: rgba(255, 255, 255, 0.5);
-  --ls-tertiary-text-color: rgba(255, 255, 255, 0.25);
-  --ls-border-color: rgba(0, 0, 0, 0.12);
+.dark-theme, html[data-theme=dark] {
+  --arc-background-shell: #191919;
+  --arc-background-card: #272727;
+  --arc-background-overlay: rgba(255, 255, 255, 0.07);
+  --arc-background-glass: rgba(35, 35, 35, 0.85);
+  --arc-content-primary: rgba(255, 255, 255, 0.83);
+  --arc-content-secondary: rgba(255, 255, 255, 0.5);
+  --arc-content-tertiary: rgba(255, 255, 255, 0.25);
+  --arc-content-divider: rgba(255, 255, 255, 0.12);
+  --arc-accent-primary: hsla(206, 75%, 50%, 1);
+}
+
+html[data-theme=dark], html[data-theme=light], #root > div, .theme-inner {
+  --ls-primary-background-color: var(--arc-background-card);
+  --ls-secondary-background-color: var(--arc-background-shell);
+  --ls-tertiary-background-color: var(--arc-background-overlay);
+  --ls-quaternary-background-color: var(--arc-background-overlay);
+  --ls-primary-text-color: var(--arc-content-primary);
+  --ls-secondary-text-color: var(--arc-content-secondary);
+  --ls-tertiary-text-color: var(--arc-content-tertiary);
+  --ls-border-color: var(--arc-content-divider);
+  --ls-secondary-border-color: var(--arc-content-divider);
+  --ls-tertiary-border-color: var(--arc-content-divider);
+  --ls-link-text-color: var(--arc-accent-primary);
+  --ls-tag-text-color: var(--arc-accent-primary);
+  --ls-link-ref-text-color: var(--arc-accent-primary);
+  --ls-block-bullet-border-color: var(--arc-content-divider);
+  --ls-guideline-color: var(--arc-background-overlay);
+  --ls-active-primary-color: var(--arc-accent-primary);
+  --ls-table-tr-even-background-color: var(--arc-background-shell);
+  --ls-block-highlight-color: var(--arc-background-overlay);
+
   --ls-page-checkbox-color: transparent;
-  --ls-page-checkbox-checked-color: rgba(47, 128, 237, 1);
-  --ls-page-checkbox-border-color: rgba(0, 0, 0, 0.25);
+  --ls-page-checkbox-checked-color: var(--ls-link-text-color);
+  --ls-page-checkbox-border-color: var(--ls-tertiary-text-color);
+  --ls-page-properties-background-color: var(--ls-tertiary-background-color);
+  --ls-block-properties-background-color: var(--ls-tertiary-background-color);
+  --ls-block-ref-link-text-color: var(--ls-border-color);
+  --ls-icon-color: var(--ls-secondary-text-color);
+  --ls-block-bullet-color: var(--ls-tertiary-text-color);
+  --ls-title-text-color: var(--ls-primary-text-color);
 }
 
 @media (min-width: 1600px) {
@@ -111,7 +139,8 @@ $arc-content-padding-mobile: 2rem;
 /* ----------------------- SHELL ----------------------- */
 #app-container {
   /* background: conic-gradient(from 180deg at 50% 50%, rgba(195, 232, 248, 0.5) 0deg, rgba(213, 239, 219, 0.5) 195deg, rgb(195, 232, 248, 0.5) 360deg), #FFFFFF; */
-  background: rgba(0, 0, 0, 0.05);
+  //background: rgba(0, 0, 0, 0.05);
+  background: transparent;
   @include parent(row, $arc-card-gap, $gap: $arc-card-gap);
   height: 100vh;
 
@@ -225,6 +254,10 @@ body.is-pdf-active #app-container {
   }
 }
 
+.theme-inner {
+  background-color: var(--ls-secondary-background-color);
+}
+
 /* ----------------------- LEFT SIDEBAR ----------------------- */
 #left-sidebar {
   @include parent(column);
@@ -281,7 +314,7 @@ body.is-pdf-active #app-container {
         display: none;
       }
 
-      nav.new-page {
+      .new-page {
         @include fill($fixed-height: fit-content);
         @include parent;
         position: relative;
@@ -444,8 +477,7 @@ body.is-pdf-active #app-container {
 
 /* ----------------------- SEARCH ----------------------- */
 .ui__modal-panel {
-  background-color: var(--ls-primary-background-color);
-  background-color: rgba(255, 255, 255, .8);
+  background-color: var(--arc-background-glass);
   backdrop-filter: blur(10px);
 
   .panel-content {
@@ -501,7 +533,7 @@ table, tr, td, th {
     overflow-x: auto;
     margin: 1em 0;
     border-radius: 16px;
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--arc-content-divider);
 }
 
 .custom-query > .flex > .initial > div > .flex {
@@ -653,6 +685,16 @@ table, tr, td, th {
   }
 }
 
+.block-content[data-type=annotation] a.prefix-link {
+  padding: 4px;
+  background: var(--ls-tertiary-background-color);
+  color: var(--ls-secondary-text-color);
+  border-radius: 4px;
+  line-height: 1;
+  margin-right: 4px;
+  text-transform: lowercase;
+}
+
 /* ----------------------- BLOCKS ----------------------- */
 .editor-inner .uniline-block:is(.h1,.h2), .ls-block :is(h1,h2) {
   border-bottom: none;
@@ -663,6 +705,9 @@ table, tr, td, th {
   border-radius: 2px;
   &:checked {
     background-color: var(--ls-page-checkbox-checked-color);
+  }
+  &:focus {
+    border-color: var(--ls-page-checkbox-border-colorc);
   }
 }
 

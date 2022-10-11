@@ -18,30 +18,45 @@ Copy `custom.css` into `logseq/custom.css` or paste this line into `logseq/custo
 @import url('https://cdn.jsdelivr.net/gh/andyburris/logseq-arc-theme/custom.css');
 ```
 
-### Customization Options
+### Customization
 Currently, the following options (shown here with their default values) are available to customize the view, which you can put into your own `custom.css`
 ```scss
---display-pdf-arrows: none; // toggles whether the page up/down arrows are available in 
+:root {
+    --display-pdf-arrows: none; // toggles whether the page up/down arrows are available in the PDF viewer
+}
+```
+
+Also, Arc Theme uses a simplified palette of colors that's applied throughout the app. You can still customize the individual Logseq variables (e.g. `--ls-primary-text-color`) if fine-grained control is needed, but to change theme-wide colors, use these variables (shown with default values):
+```scss
+.white-theme, html[data-theme=light] {
+  --arc-background-shell: #F2F2F2;
+  --arc-background-card: #FFFFFF;
+  --arc-background-overlay: rgba(0, 0, 0, 0.05);
+  --arc-background-glass: rgba(255, 255, 255, 0.85);
+  --arc-content-primary: rgba(0, 0, 0, 0.80);
+  --arc-content-secondary: rgba(0, 0, 0, 0.5);
+  --arc-content-tertiary: rgba(0, 0, 0, 0.25);
+  --arc-content-divider: rgba(0, 0, 0, 0.12);
+  --arc-accent-primary: hsla(206, 75%, 50%, 0.98);
+}
+
+.dark-theme, html[data-theme=dark] {
+  --arc-background-shell: #191919;
+  --arc-background-card: #272727;
+  --arc-background-overlay: rgba(255, 255, 255, 0.07);
+  --arc-background-glass: rgba(35, 35, 35, 0.85);
+  --arc-content-primary: rgba(255, 255, 255, 0.83);
+  --arc-content-secondary: rgba(255, 255, 255, 0.5);
+  --arc-content-tertiary: rgba(255, 255, 255, 0.25);
+  --arc-content-divider: rgba(255, 255, 255, 0.12);
+  --arc-accent-primary: hsla(206, 75%, 50%, 1);
+}
 ```
 
 ### Roadmap
-Generally, I want to really polish each surface before moving on to the next one. Also, I will mainly be updating this as I go, so progress might be slow. In the meantime, there will probably be a lot of screens that are very default-looking (and maybe broken). For now though, here are the things I have and haven't done:
+Generally, I want to really polish each surface before moving on to the next one. Also, I will mainly be updating this theme as I find the need to, so progress might be slow. In the meantime, there will probably be a lot of screens that are very default-looking (and maybe broken). 
 
-- [x] App shell
-- [x] Journals
-- [x] Other pages
-- [x] PDF viewer
-- [x] Left sidebar
-- [x] Right sidebar
-- [x] TODO styling (might revisit)
-- [x] Table styling
-- [x] Search styling (WIP)
-- [ ] Reference/embed styling
-- [ ] Popups for settings, etc. 
-- [ ] Theme options for user `custom.css`
-- [ ] Style + readd (as option) favorites + recent
-
-If there's a surface that's not on here, or that you have ideas about how you'd like to see it fixed, feel free to open an issue, and I'll try to make it happen.
+All planned improvements are in the issues, and if you have ideas or bugs, feel free to open a new issue, and I'll try to make it happen.
 
 ### Building
 1. Install [Sass](https://sass-lang.com/)

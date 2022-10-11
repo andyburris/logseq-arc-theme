@@ -12,34 +12,61 @@
   --ls-headbar-height: $arc-action-bar-height;
   --ls-main-content-max-width: 100%;
   --ls-left-sidebar-width: calc(256px - 24px);
+  --ls-tag-text-opacity: 1;
 }
 
-.white-theme {
-  --ls-primary-background-color: #ffffff;
-  --ls-secondary-background-color: #f8f8f8;
-  --ls-tertiary-background-color: rgba(0, 0, 0, 0.07);
-  --ls-quaternary-background-color: #e8e8e8;
-  --ls-glass-background-color: rgba(255, 255, 255, 0.85);
-  --ls-secondary-text-color: rgba(0, 0, 0, 0.5);
-  --ls-tertiary-text-color: rgba(0, 0, 0, 0.25);
-  --ls-border-color: rgba(0, 0, 0, 0.12);
-  --ls-page-checkbox-color: transparent;
-  --ls-page-checkbox-checked-color: rgba(47, 128, 237, 1);
-  --ls-page-checkbox-border-color: rgba(0, 0, 0, 0.25);
+.white-theme, html[data-theme=light] {
+  --arc-background-shell: #F2F2F2;
+  --arc-background-card: #FFFFFF;
+  --arc-background-overlay: rgba(0, 0, 0, 0.05);
+  --arc-background-glass: rgba(255, 255, 255, 0.85);
+  --arc-content-primary: rgba(0, 0, 0, 0.80);
+  --arc-content-secondary: rgba(0, 0, 0, 0.5);
+  --arc-content-tertiary: rgba(0, 0, 0, 0.25);
+  --arc-content-divider: rgba(0, 0, 0, 0.12);
+  --arc-accent-primary: hsla(206, 75%, 50%, 0.98);
 }
 
-.dark-theme {
-  --ls-primary-background-color: #272727;
-  --ls-secondary-background-color: #121212;
-  --ls-tertiary-background-color: rgba(0, 0, 0, 0.07);
-  --ls-quaternary-background-color: #e8e8e8;
-  --ls-glass-background-color: rgba(255, 255, 255, 0.85);
-  --ls-secondary-text-color: rgba(255, 255, 255, 0.5);
-  --ls-tertiary-text-color: rgba(255, 255, 255, 0.25);
-  --ls-border-color: rgba(0, 0, 0, 0.12);
+.dark-theme, html[data-theme=dark] {
+  --arc-background-shell: #191919;
+  --arc-background-card: #272727;
+  --arc-background-overlay: rgba(255, 255, 255, 0.07);
+  --arc-background-glass: rgba(35, 35, 35, 0.85);
+  --arc-content-primary: rgba(255, 255, 255, 0.83);
+  --arc-content-secondary: rgba(255, 255, 255, 0.5);
+  --arc-content-tertiary: rgba(255, 255, 255, 0.25);
+  --arc-content-divider: rgba(255, 255, 255, 0.12);
+  --arc-accent-primary: hsla(206, 75%, 50%, 1);
+}
+
+html[data-theme=dark], html[data-theme=light], #root > div, .theme-inner {
+  --ls-primary-background-color: var(--arc-background-card);
+  --ls-secondary-background-color: var(--arc-background-shell);
+  --ls-tertiary-background-color: var(--arc-background-overlay);
+  --ls-quaternary-background-color: var(--arc-background-overlay);
+  --ls-primary-text-color: var(--arc-content-primary);
+  --ls-secondary-text-color: var(--arc-content-secondary);
+  --ls-tertiary-text-color: var(--arc-content-tertiary);
+  --ls-border-color: var(--arc-content-divider);
+  --ls-secondary-border-color: var(--arc-content-divider);
+  --ls-tertiary-border-color: var(--arc-content-divider);
+  --ls-link-text-color: var(--arc-accent-primary);
+  --ls-tag-text-color: var(--arc-accent-primary);
+  --ls-link-ref-text-color: var(--arc-accent-primary);
+  --ls-block-bullet-border-color: var(--arc-content-divider);
+  --ls-guideline-color: var(--arc-background-overlay);
+  --ls-active-primary-color: var(--arc-accent-primary);
+  --ls-table-tr-even-background-color: var(--arc-background-shell);
+  --ls-block-highlight-color: var(--arc-background-overlay);
   --ls-page-checkbox-color: transparent;
-  --ls-page-checkbox-checked-color: rgba(47, 128, 237, 1);
-  --ls-page-checkbox-border-color: rgba(0, 0, 0, 0.25);
+  --ls-page-checkbox-checked-color: var(--ls-link-text-color);
+  --ls-page-checkbox-border-color: var(--ls-tertiary-text-color);
+  --ls-page-properties-background-color: var(--ls-tertiary-background-color);
+  --ls-block-properties-background-color: var(--ls-tertiary-background-color);
+  --ls-block-ref-link-text-color: var(--ls-border-color);
+  --ls-icon-color: var(--ls-secondary-text-color);
+  --ls-block-bullet-color: var(--ls-tertiary-text-color);
+  --ls-title-text-color: var(--ls-primary-text-color);
 }
 
 @media (min-width: 1600px) {
@@ -51,7 +78,7 @@
 /* ----------------------- SHELL ----------------------- */
 #app-container {
   /* background: conic-gradient(from 180deg at 50% 50%, rgba(195, 232, 248, 0.5) 0deg, rgba(213, 239, 219, 0.5) 195deg, rgb(195, 232, 248, 0.5) 360deg), #FFFFFF; */
-  background: rgba(0, 0, 0, 0.05);
+  background: transparent;
   margin: 0;
   padding-top: 12px;
   padding-left: 12px;
@@ -208,7 +235,7 @@ hr {
   border-radius: 4px;
 }
 
-.shadow-md, #left-sidebar .item.active, #left-sidebar .left-sidebar-inner > .flex nav.new-page .active.new-page-link {
+.shadow-md, #left-sidebar .item.active, #left-sidebar .left-sidebar-inner > .flex .new-page .active.new-page-link {
   box-shadow: 0px 0.5px 1.75px rgba(0, 0, 0, 0.039), 0px 1.85px 6.25px rgba(0, 0, 0, 0.19);
 }
 
@@ -227,6 +254,10 @@ body.is-pdf-active #app-container {
 body.is-pdf-active #app-container #app-single-container {
   display: block;
   order: -1;
+}
+
+.theme-inner {
+  background-color: var(--ls-secondary-background-color);
 }
 
 /* ----------------------- LEFT SIDEBAR ----------------------- */
@@ -348,7 +379,7 @@ body.is-pdf-active #app-container #app-single-container {
 #left-sidebar .left-sidebar-inner > .flex .recent {
   display: none;
 }
-#left-sidebar .left-sidebar-inner > .flex nav.new-page {
+#left-sidebar .left-sidebar-inner > .flex .new-page {
   width: -webkit-fill-available;
   max-width: -webkit-fill-available;
   height: fit-content;
@@ -366,7 +397,7 @@ body.is-pdf-active #app-container #app-single-container {
   box-sizing: border-box; /* Opera/IE 8+ */
   position: relative;
 }
-#left-sidebar .left-sidebar-inner > .flex nav.new-page .new-page-link {
+#left-sidebar .left-sidebar-inner > .flex .new-page .new-page-link {
   width: -webkit-fill-available;
   max-width: -webkit-fill-available;
   height: -webkit-fill-available;
@@ -374,20 +405,20 @@ body.is-pdf-active #app-container #app-single-container {
   background-color: inherit;
   box-shadow: none;
 }
-#left-sidebar .left-sidebar-inner > .flex nav.new-page .new-page-link .ti-circle-plus {
+#left-sidebar .left-sidebar-inner > .flex .new-page .new-page-link .ti-circle-plus {
   font-size: 16px !important;
 }
-#left-sidebar .left-sidebar-inner > .flex .item, #left-sidebar .left-sidebar-inner > .flex nav.new-page .new-page-link {
+#left-sidebar .left-sidebar-inner > .flex .item, #left-sidebar .left-sidebar-inner > .flex .new-page .new-page-link {
   padding: 12px;
   color: var(--ls-secondary-text-color);
   font-weight: 400;
   border-radius: 12px;
 }
-#left-sidebar .left-sidebar-inner > .flex .item:hover, #left-sidebar .left-sidebar-inner > .flex nav.new-page .new-page-link:hover {
+#left-sidebar .left-sidebar-inner > .flex .item:hover, #left-sidebar .left-sidebar-inner > .flex .new-page .new-page-link:hover {
   background-color: rgba(0, 0, 0, 0.05);
   opacity: 1;
 }
-#left-sidebar .left-sidebar-inner > .flex .item.active, #left-sidebar .left-sidebar-inner > .flex nav.new-page .active.new-page-link {
+#left-sidebar .left-sidebar-inner > .flex .item.active, #left-sidebar .left-sidebar-inner > .flex .new-page .active.new-page-link {
   background-color: var(--ls-primary-background-color);
   color: var(--ls-primary-text-color);
   font-weight: 600;
@@ -597,8 +628,7 @@ body.is-pdf-active #app-container #app-single-container {
 
 /* ----------------------- SEARCH ----------------------- */
 .ui__modal-panel {
-  background-color: var(--ls-primary-background-color);
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: var(--arc-background-glass);
   backdrop-filter: blur(10px);
 }
 .ui__modal-panel .panel-content {
@@ -648,7 +678,7 @@ table, tr, td, th {
   overflow-x: auto;
   margin: 1em 0;
   border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--arc-content-divider);
 }
 
 .custom-query > .flex > .initial > div > .flex {
@@ -786,6 +816,16 @@ table, tr, td, th {
   max-width: inherit;
 }
 
+.block-content[data-type=annotation] a.prefix-link {
+  padding: 4px;
+  background: var(--ls-tertiary-background-color);
+  color: var(--ls-secondary-text-color);
+  border-radius: 4px;
+  line-height: 1;
+  margin-right: 4px;
+  text-transform: lowercase;
+}
+
 /* ----------------------- BLOCKS ----------------------- */
 .editor-inner .uniline-block:is(.h1, .h2), .ls-block :is(h1, h2) {
   border-bottom: none;
@@ -797,6 +837,9 @@ table, tr, td, th {
 }
 .form-checkbox:checked {
   background-color: var(--ls-page-checkbox-checked-color);
+}
+.form-checkbox:focus {
+  border-color: var(--ls-page-checkbox-border-colorc);
 }
 
 h1 a.tag, .tag {
