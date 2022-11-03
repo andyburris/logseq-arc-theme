@@ -7,6 +7,7 @@ $arc-sidebar-gap: 4px;
 $arc-content-max-width: 85ch;
 $arc-content-padding-desktop: 48px;
 $arc-content-padding-mobile: 2rem;
+$arc-body-font-size: 16px;
 
 @mixin devices ($breakpoint) { //the name of the mixin is devices
   @if $breakpoint == mobile {
@@ -60,9 +61,10 @@ $arc-content-padding-mobile: 2rem;
 /* You can toggle these variables between "block" (Visible) and "none" (Hidden) to show or hide different elements of the UI */
 :root {
   --display-recent-pages: block;
+  --display-favorite-pages: block;
   --display-search-button: flex;
   --display-arrow-navigation: block;
-  --display-help-button: block;
+  --display-help-button: none;
   --display-pdf-arrows: none;
   --ct-highlight-color: #f4d909;
   --ct-highlight-color-text: black;
@@ -117,6 +119,7 @@ html[data-theme=dark], html[data-theme=light], #root > div, .theme-inner {
   --ls-active-primary-color: var(--arc-accent-primary);
   --ls-table-tr-even-background-color: var(--arc-background-shell);
   --ls-block-highlight-color: var(--arc-background-overlay);
+  --ls-menu-hover-color: var(--arc-background-overlay);
 
   --ls-page-checkbox-color: transparent;
   --ls-page-checkbox-checked-color: var(--ls-link-text-color);
@@ -182,10 +185,6 @@ html[data-theme=dark], html[data-theme=light], #root > div, .theme-inner {
       }
     }
   }
-}
-
-.ls-left-sidebar-open .l {
-  justify-content: space-between;
 }
 
 #head > .flex {
@@ -271,12 +270,12 @@ body.is-pdf-active #app-container {
     background-color: transparent;
 
     & > .flex {
-      @include fill($fixed-width: fit-content);
-      @include parent(column, $gap: $arc-sidebar-gap);
+      @include fill;
+      @include parent(column, $gap: 2 * $arc-sidebar-gap);
       @include fix-child-shadows;
 
       nav.flex { //sidebar items
-        @include fill($fixed-width: var(--ls-left-sidebar-width));
+        @include fill($fixed-width: var(--ls-left-sidebar-width), $fixed-height: 100%); //not sure why fill-available doesn't work here
         @include parent(column-reverse, $gap: $arc-sidebar-gap);
         justify-content: space-between;
 
@@ -306,26 +305,81 @@ body.is-pdf-active #app-container {
         }
       }
 
-      .favorites {
+      .nav-contents-container {
+        @include fill($fixed-height: fit-content);
+        @include parent($direction: column);
+        padding: 0;
         display: none;
-      }
-      
-      .recent {
-        display: none;
+
+        .favorites {
+          display: var(--display-favorite-pages);
+        }
+        
+        .recent {
+          display: var(--display-recent-pages);
+        }
+
+        .header {
+          @include fill($fixed-height: fit-content);
+          @include parent;
+          padding: 12px;
+
+          .fade-link > .flex {
+            color: var(--arc-content-secondary);
+
+            .ui__icon {
+              display: none;
+            }
+            span.flex-1 {
+              margin: 0;
+              font-size: inherit;
+              font-weight: inherit;
+              text-transform: lowercase;
+              &::first-letter {
+                text-transform: capitalize;
+              }
+            }
+          }
+        }
+
+        .favorite-item > .flex, .recent-item > .flex {
+          @extend .item;
+        }
       }
 
-      .new-page {
+      .create {
         @include fill($fixed-height: fit-content);
         @include parent;
         position: relative;
+        order: -1;
         
         .new-page-link {
           @include fill;
-          background-color: inherit;
+          // background-color: inherit;
+          background-color: var(--arc-background-overlay);
           box-shadow: none;
-          @extend .item; //needed to get hover to work
+          //@extend .item; //needed to get hover to work
 
-          .ti-circle-plus { font-size: 16px !important; } //!important needed since it overrides a html style
+          & > .ls-icon-circle-plus {
+            &::before {
+              font-size: 18px;
+              content: '\eb1c';
+              font-family: tabler-icons;
+              -webkit-font-smoothing: antialiased;
+            }
+            & > svg {
+              display: none;
+            }
+          }
+
+          & > span.flex-1 {
+            display: none;
+          }
+
+          &::after {
+            content: 'Search';
+          }
+
         }
       }
 
@@ -334,6 +388,7 @@ body.is-pdf-active #app-container {
         color: var(--ls-secondary-text-color);
         font-weight: 400;
         border-radius: $arc-card-corner-radius;
+        gap: 12px;
     
         &:hover {
           background-color: rgba(0, 0, 0, 0.05);
@@ -345,6 +400,10 @@ body.is-pdf-active #app-container {
           color: var(--ls-primary-text-color);
           font-weight: 600;
           transition: background-color 0ms;
+        }
+
+        .ui__icon {
+          margin: 0;
         }
       }
     }
@@ -374,6 +433,10 @@ body.is-pdf-active #app-container {
       max-width: -webkit-fill-available;
     }
   }
+}
+
+body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
+  display: none;
 }
 
 /* ----------------------- RIGHT SIDEBAR ----------------------- */
@@ -478,10 +541,13 @@ body.is-pdf-active #app-container {
 /* ----------------------- SEARCH ----------------------- */
 .ui__modal-panel {
   background-color: var(--arc-background-glass);
+  border: solid 1px var(--arc-content-divider);
+  border-radius: $arc-card-corner-radius;
   backdrop-filter: blur(10px);
 
   .panel-content {
     padding: 0px;
+    max-width: 720px;
 
     .cp__palette-main {
       margin: 0px;
@@ -489,14 +555,169 @@ body.is-pdf-active #app-container {
       .input-wrap {
         border-bottom: solid 1px var(--ls-border-color);
         height: fit-content;
-      }
 
-      .recent-search {
-        .menu-link {
-          background-color: transparent;
-          &:hover {
-            background-color: var(--ls-menu-hover-color);
+        input {
+          color: var(--arc-content-primary);
+          &::placeholder {
+            color: var(--arc-content-tertiary);
           }
+        }
+      }
+      .search-results-wrap {
+        .recent-search {
+          padding: 4px;
+
+          #ui__ac-inner > div:nth-child(6)::before { // container for first recent page after recent searches
+            content: "Recents";
+            padding: 12px;
+            display: block;
+            color: var(--arc-content-secondary);
+          }
+          & > .wrap { // recent search: header
+            padding: 12px;
+
+            &::before {
+              content: "Searches";
+              font-size: $arc-body-font-size;
+            }
+
+            & > div:first-child {
+              display: none;
+            }
+          }
+        }
+
+        #ui__ac-inner {
+          display: flex;
+          flex-direction: column;
+          padding: 4px;
+          
+          .menu-link {
+            background-color: transparent;
+            padding: 12px;
+            border-radius: 8px !important;
+
+            &:hover {
+              color: var(--arc-content-primary);
+            }
+
+            .search-item-text {
+              font-size: $arc-body-font-size;
+              font-weight: normal;  
+
+              p, span {
+                margin: 0;
+              }
+            }
+
+            .search-item-icon {
+              @include parent($top: 4px);
+              background-color: var(--arc-background-overlay);
+              width: 24px;
+              height: 24px;
+              color: var(--arc-content-secondary);
+              border-radius: 4px;
+              transform: scale(1);
+              border: none;
+              align-items: center;
+              justify-content: start;
+              color: transparent;
+              &::before {
+                font-size: 16px;
+                font-family: tabler-icons;
+                font-style: normal;
+                font-weight: 400;
+                -webkit-font-smoothing: antialiased;
+                color: var(--arc-content-secondary);
+              }
+            }
+
+            .search-item-layout {
+              align-items: center;
+              gap: 16px;
+              padding: 0;
+              margin: 0;
+            }
+    
+            & > span > div.search-item { // recent search result
+              @extend .search-item-layout;
+              @extend .search-item-text;
+
+              & > svg { // search icon
+                @extend .search-item-icon;
+                color: var(--arc-content-secondary);
+              }
+            } 
+
+            & > span > div.items-baseline { // recent page result
+              @extend .search-item-layout;
+              @extend .search-item-text;
+            }
+
+            .search-result {
+              @extend .search-item-layout;
+              @extend .search-item-text;
+
+              .type-icon {
+                margin: 0;
+                color: var(--arc-content-secondary);
+                border-color: transparent;
+                 &::before {
+                  background-color: var(--arc-background-overlay);
+                 }
+              }
+
+              .mb-1 {
+                @extend .search-item-text;
+                .breadcrumb {
+                  a {
+                    color: var(--arc-content-secondary);
+                    &:last-of-type {
+                      color: var(--arc-content-primary);
+                    }
+                  }
+  
+                  & > span.mx-2 {
+                    opacity: 1;
+                    color: transparent;
+                    display: inline-block;
+                    width: 16px;
+                    margin: 0 8px;
+  
+                    &::before {
+                      font-size: 16px;
+                      font-family: tabler-icons;
+                      font-style: normal;
+                      font-weight: 400;
+                      -webkit-font-smoothing: antialiased;
+                      color: var(--arc-content-secondary);
+                      content: '\ea61';
+                    }
+                  }
+                }
+              }
+              .font-medium {
+                font-size: $arc-body-font-size;
+                font-weight: normal;
+                color: var(--arc-content-secondary);
+              }
+            }
+    
+            &:hover {
+              background-color: var(--ls-menu-hover-color);
+            }
+
+            &.chosen {
+              background-color: var(--arc-background-overlay);
+              color: var(--arc-content-primary);
+            }
+          }
+        }
+
+        .search-more {
+          padding: 12px;
+          border-radius: 8px;
+          margin: 4px;
         }
       }
     }
@@ -568,6 +789,14 @@ table, tr, td, th {
   border-radius: 12px;
 }
 
+.panel-content > div {
+  margin: 0;
+}
+
+.cp__settings-main > header {
+  padding: 16px;
+}
+
 /* ----------------------- PDF ----------------------- */
 #pdf-layout-container {
   &[data-theme=light] { background-color: transparent; }
@@ -625,7 +854,7 @@ table, tr, td, th {
                 input {
                   border-radius: 4px;
                   background-color: var(--ls-tertiary-background-color);
-                  color: var(--ls-secondary-text-color);
+                  color: var(--ls-primary-text-color);
                 }
                 small {
                   font-size: 100%;
@@ -715,6 +944,11 @@ h1 a.tag, .tag {
   font-size: inherit;
 }
 
+h1.title {
+  font-family: var(--ls-font-family);
+  font-weight: 600;
+}
+
 .marker-switch.TODO {
   display: none;
 }
@@ -739,4 +973,25 @@ h1 a.tag, .tag {
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+.button, html[data-theme=light] a.button, .cp__header a, .cp__header button, .cp__right-sidebar-topbar button {
+  opacity: 1;
+  color: var(--arc-content-secondary);
+}
+
+a {
+  color: inherit;
+}
+
+a.is-pdf, a.external-link {
+  color: var(--ls-link-text-color);
+}
+
+.cp__sidebar-help-btn {
+  display: var(--display-help-button);
+}
+
+.graph {
+  height: 100% !important;
 }
