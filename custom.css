@@ -614,6 +614,13 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
 #right-sidebar.open {
   display: flex;
 }
+#right-sidebar .resizer {
+  width: 12px;
+  left: -12px;
+}
+#right-sidebar .resizer:focus, #right-sidebar .resizer:hover {
+  background-color: transparent;
+}
 
 /* ----------------------- PAGES ----------------------- */
 .page {
@@ -711,56 +718,59 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
 .ui__modal-panel .panel-content .cp__palette-main {
   margin: 0px;
 }
-.ui__modal-panel .panel-content .cp__palette-main .input-wrap {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search {
+  padding: 0;
+}
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .input-wrap {
   border-bottom: solid 1px var(--ls-border-color);
   height: fit-content;
 }
-.ui__modal-panel .panel-content .cp__palette-main .input-wrap input {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .input-wrap input {
   color: var(--arc-content-primary);
 }
-.ui__modal-panel .panel-content .cp__palette-main .input-wrap input::placeholder {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .input-wrap input::placeholder {
   color: var(--arc-content-tertiary);
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .recent-search {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .recent-search {
   padding: 4px;
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .recent-search #ui__ac-inner > div:nth-child(6)::before {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .recent-search #ui__ac-inner > div:nth-child(6)::before {
   content: "Recents";
   padding: 12px;
   display: block;
   color: var(--arc-content-secondary);
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .recent-search > .wrap {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .recent-search > .wrap {
   padding: 12px;
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .recent-search > .wrap::before {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .recent-search > .wrap::before {
   content: "Searches";
   font-size: 16px;
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .recent-search > .wrap > div:first-child {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .recent-search > .wrap > div:first-child {
   display: none;
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner {
   display: flex;
   flex-direction: column;
   padding: 4px;
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link {
   background-color: transparent;
   padding: 12px;
   border-radius: 8px !important;
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link:hover {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link:hover {
   color: var(--arc-content-primary);
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-item-text, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-item-text, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item {
   font-size: 16px;
   font-weight: normal;
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-item-text p, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result p, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline p, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item p, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-item-text span, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result span, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline span, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item span {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-item-text p, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result p, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline p, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item p, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-item-text span, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result span, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline span, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item span {
   margin: 0;
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-item-icon, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-item-icon, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg {
   margin: 0;
   padding-top: 4px;
   padding-left: 4px;
@@ -783,7 +793,7 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
   justify-content: start;
   color: transparent;
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-item-icon::before, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg::before {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-item-icon::before, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg::before {
   font-size: 16px;
   font-family: tabler-icons;
   font-style: normal;
@@ -791,37 +801,37 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
   -webkit-font-smoothing: antialiased;
   color: var(--arc-content-secondary);
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-item-layout, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-item-layout, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item {
   align-items: center;
   gap: 16px;
   padding: 0;
   margin: 0;
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg {
   color: var(--arc-content-secondary);
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result .type-icon {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .type-icon {
   margin: 0;
   color: var(--arc-content-secondary);
   border-color: transparent;
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result .type-icon::before {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .type-icon::before {
   background-color: var(--arc-background-overlay);
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb a {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb a {
   color: var(--arc-content-secondary);
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb a:last-of-type {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb a:last-of-type {
   color: var(--arc-content-primary);
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb > span.mx-2 {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb > span.mx-2 {
   opacity: 1;
   color: transparent;
   display: inline-block;
   width: 16px;
   margin: 0 8px;
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb > span.mx-2::before {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb > span.mx-2::before {
   font-size: 16px;
   font-family: tabler-icons;
   font-style: normal;
@@ -830,19 +840,19 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
   color: var(--arc-content-secondary);
   content: "\ea61";
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result .font-medium {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .font-medium {
   font-size: 16px;
   font-weight: normal;
   color: var(--arc-content-secondary);
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link:hover {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link:hover {
   background-color: var(--ls-menu-hover-color);
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link.chosen {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link.chosen {
   background-color: var(--arc-background-overlay);
   color: var(--arc-content-primary);
 }
-.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .search-more {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .search-more {
   padding: 12px;
   border-radius: 8px;
   margin: 4px;
@@ -918,6 +928,11 @@ table, tr, td, th {
 
 .cp__settings-main > header {
   padding: 16px;
+}
+
+/* ----------------------- SETTINGS ----------------------- */
+.cp__settings-inner > aside > ul {
+  padding: 8px;
 }
 
 /* ----------------------- PDF ----------------------- */
@@ -1061,6 +1076,29 @@ h1.title {
 
 .marker-switch.TODO {
   display: none;
+}
+
+/* ----------------------- POPUP MENU ----------------------- */
+.dropdown-wrapper {
+  --dropdown-border-radius: 8px;
+  border-radius: var(--dropdown-border-radius);
+}
+.dropdown-wrapper .menu-links-wrapper {
+  padding: 4px;
+  border-radius: var(--dropdown-border-radius);
+}
+.dropdown-wrapper .menu-links-wrapper .menu-link {
+  padding: 10px 12px;
+  border-radius: calc(var(--dropdown-border-radius) - 4px);
+}
+.dropdown-wrapper .menu-links-wrapper .menu-link > .flex-1 > .items-center {
+  gap: 8px;
+}
+.dropdown-wrapper .menu-links-wrapper .menu-link > .flex-1 > .items-center span.ui__icon {
+  opacity: 0.5;
+}
+.dropdown-wrapper .menu-links-wrapper .menu-link > .flex-1 > .items-center .title-wrap {
+  margin: 0 !important;
 }
 
 /* ----------------------- MISC ----------------------- */
