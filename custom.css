@@ -6,6 +6,7 @@
   --display-arrow-navigation: block;
   --display-help-button: none;
   --display-pdf-arrows: none;
+  --display-todo-status: none;
   --ct-highlight-color: #f4d909;
   --ct-highlight-color-text: black;
   --ls-font-family: "Inter", sans-serif;
@@ -69,6 +70,7 @@ html[data-theme=dark], html[data-theme=light], #root > div, .theme-inner {
   --ls-icon-color: var(--ls-secondary-text-color);
   --ls-block-bullet-color: var(--ls-tertiary-text-color);
   --ls-title-text-color: var(--ls-primary-text-color);
+  --ls-page-blockquote-border-color: var(--arc-accent-primary);
 }
 
 @media (min-width: 1600px) {
@@ -1039,14 +1041,20 @@ table, tr, td, th {
   max-width: inherit;
 }
 
-.block-content[data-type=annotation] a.prefix-link {
-  padding: 4px;
-  background: var(--ls-tertiary-background-color);
-  color: var(--ls-secondary-text-color);
-  border-radius: 4px;
-  line-height: 1;
+.block-content[data-type=annotation] .prefix-link {
+  background: var(--arc-background-overlay);
+  border-radius: 8px;
+  padding-left: 4px;
+  padding-right: 4px;
   margin-right: 4px;
-  text-transform: lowercase;
+  color: var(--arc-content-secondary);
+}
+.block-content[data-type=annotation] .prefix-link::before {
+  opacity: 0.5;
+  font-size: smaller;
+}
+.block-content[data-type=annotation] .prefix-link label.blank {
+  display: none;
 }
 
 /* ----------------------- BLOCKS ----------------------- */
@@ -1075,12 +1083,75 @@ h1.title {
 }
 
 .marker-switch.TODO {
+  display: var(--display-todo-status);
+}
+
+.admonition-item, .admonitionblock, blockquote {
+  border: solid transparent 0px;
+  background: linear-gradient(var(--ls-page-blockquote-border-color), var(--ls-page-blockquote-border-color)) left/4px no-repeat, var(--arc-background-overlay);
+  border-radius: 8px;
+  display: flex;
+  gap: 12px;
+  padding: 8px 12px 8px 16px;
+}
+.admonition-item::before, .admonitionblock::before, blockquote::before {
+  font-size: 18px;
+  font-family: tabler-icons;
+  -webkit-font-smoothing: antialiased;
+  color: var(--arc-content-secondary);
+  line-height: 24px;
+}
+
+blockquote::before {
+  content: "\ee09";
+}
+
+.cp__fenced-code-block .CodeMirror {
+  border-radius: 8px;
+}
+.cp__fenced-code-block .extensions__code-lang {
+  background: var(--arc-background-overlay);
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.admonitionblock {
+  margin: 0;
+}
+.admonitionblock .admonition-icon {
   display: none;
+}
+.admonitionblock .text-lg {
+  margin: 0px;
+  font-size: inherit;
+  line-height: inherit;
+}
+.admonitionblock.note::before {
+  content: "\eac5";
+}
+.admonitionblock.tip::before {
+  content: "\ea51";
+}
+.admonitionblock.important::before {
+  content: "\ea05";
+}
+.admonitionblock.caution::before {
+  content: "\ec2c";
+}
+.admonitionblock.pinned::before {
+  content: "\ec9c";
+}
+.admonitionblock.warning::before {
+  content: "\ea06";
+}
+
+.ls-block.selected {
+  border-radius: 8px;
 }
 
 /* ----------------------- POPUP MENU ----------------------- */
 .dropdown-wrapper {
-  --dropdown-border-radius: 8px;
+  --dropdown-border-radius: 12px;
   border-radius: var(--dropdown-border-radius);
 }
 .dropdown-wrapper .menu-links-wrapper {
