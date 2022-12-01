@@ -977,8 +977,23 @@ table, tr, td, th {
   }
 }
 
+a.tag {
+  color: var(--arc-content-secondary);
+  background: var(--arc-background-overlay);
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+
+  &:hover {
+    color: var(--arc-content-primary);
+  }
+}
+
 h1 a.tag, .tag {
   font-size: inherit;
+  font-weight: 600;
 }
 
 h1.title {
