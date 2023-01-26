@@ -17,7 +17,8 @@
   --ls-tag-text-opacity: 1;
 }
 
-.white-theme, html[data-theme=light] {
+.white-theme,
+html[data-theme=light] {
   --arc-background-shell: #F2F2F2;
   --arc-background-card: #FFFFFF;
   --arc-background-overlay: rgba(0, 0, 0, 0.05);
@@ -29,7 +30,8 @@
   --arc-accent-primary: hsla(206, 75%, 50%, 0.98);
 }
 
-.dark-theme, html[data-theme=dark] {
+.dark-theme,
+html[data-theme=dark] {
   --arc-background-shell: #191919;
   --arc-background-card: #272727;
   --arc-background-overlay: rgba(255, 255, 255, 0.07);
@@ -41,7 +43,10 @@
   --arc-accent-primary: hsla(206, 75%, 50%, 1);
 }
 
-html[data-theme=dark], html[data-theme=light], #root > div, .theme-inner {
+html[data-theme=dark],
+html[data-theme=light],
+#root > div,
+.theme-inner {
   --ls-primary-background-color: var(--arc-background-card);
   --ls-secondary-background-color: var(--arc-background-shell);
   --ls-tertiary-background-color: var(--arc-background-overlay);
@@ -91,9 +96,12 @@ html[data-theme=dark], html[data-theme=light], #root > div, .theme-inner {
   display: flex;
   flex-direction: row;
   gap: 12px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
   height: 100vh;
 }
 #app-container #left-container {
@@ -105,9 +113,12 @@ html[data-theme=dark], html[data-theme=light], #root > div, .theme-inner {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
   width: -webkit-fill-available;
   max-width: -webkit-fill-available;
   height: -webkit-fill-available;
@@ -119,7 +130,8 @@ html[data-theme=dark], html[data-theme=light], #root > div, .theme-inner {
 #app-container #left-container #head {
   display: flex;
 }
-#app-container #left-container #head .l, #app-container #left-container #head .r {
+#app-container #left-container #head .l,
+#app-container #left-container #head .r {
   margin: 0;
   padding-top: 0;
   padding-left: 0;
@@ -128,9 +140,12 @@ html[data-theme=dark], html[data-theme=light], #root > div, .theme-inner {
   display: flex;
   flex-direction: row;
   gap: 0;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
 }
 #app-container #left-container #main-container {
   display: flex;
@@ -142,9 +157,12 @@ html[data-theme=dark], html[data-theme=light], #root > div, .theme-inner {
   display: flex;
   flex-direction: row;
   gap: 12px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
   margin: -16px;
   padding: 16px;
   transition: transform 150ms;
@@ -163,9 +181,12 @@ html[data-theme=dark], html[data-theme=light], #root > div, .theme-inner {
   display: flex;
   flex-direction: row;
   gap: 0;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
   background-color: var(--ls-primary-background-color);
   border-radius: 12px;
   box-shadow: 0px 0.5px 1.75px rgba(0, 0, 0, 0.039), 0px 1.85px 6.25px rgba(0, 0, 0, 0.19);
@@ -183,9 +204,12 @@ html[data-theme=dark], html[data-theme=light], #root > div, .theme-inner {
   display: flex;
   flex-direction: column;
   gap: 0;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
   align-items: center;
 }
 #app-container #left-container #main-container #main-content-container .cp__sidebar-main-content > .mx-auto > div {
@@ -235,7 +259,12 @@ hr {
   border-radius: 4px;
 }
 
-.shadow-md, #left-sidebar .item.active, #left-sidebar .left-sidebar-inner > .flex .nav-contents-container .favorite-item > .active.flex, #left-sidebar .left-sidebar-inner > .flex .nav-contents-container .recent-item > .active.flex {
+.shadow-md,
+.ext-sidebar-item.active,
+.cp__settings-inner > aside > ul > li.active.settings-menu-item,
+#left-sidebar .left-sidebar-inner > .flex .active.item,
+#left-sidebar .left-sidebar-inner > .flex .nav-contents-container .favorite-item > .active.flex,
+#left-sidebar .left-sidebar-inner > .flex .nav-contents-container .recent-item > .active.flex {
   box-shadow: 0px 0.5px 1.75px rgba(0, 0, 0, 0.039), 0px 1.85px 6.25px rgba(0, 0, 0, 0.19);
 }
 
@@ -270,9 +299,12 @@ body.is-pdf-active #app-container #app-single-container {
   display: flex;
   flex-direction: column;
   gap: 0;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
   display: none;
   position: inherit;
 }
@@ -289,9 +321,12 @@ body.is-pdf-active #app-container #app-single-container {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
   margin: -16px;
   padding: 16px;
   background-color: transparent;
@@ -309,9 +344,12 @@ body.is-pdf-active #app-container #app-single-container {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
   margin: -16px;
   padding: 16px;
 }
@@ -328,9 +366,12 @@ body.is-pdf-active #app-container #app-single-container {
   display: flex;
   flex-direction: column-reverse;
   gap: 4px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
   justify-content: space-between;
 }
 #left-sidebar .left-sidebar-inner > .flex nav.flex .nav-header {
@@ -342,9 +383,12 @@ body.is-pdf-active #app-container #app-single-container {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
 }
 #left-sidebar .left-sidebar-inner > .flex nav.flex .ui__dropdown-trigger {
   margin: 0;
@@ -355,9 +399,12 @@ body.is-pdf-active #app-container #app-single-container {
   display: flex;
   flex-direction: column-reverse;
   gap: 0;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
 }
 #left-sidebar .left-sidebar-inner > .flex nav.flex .ui__dropdown-trigger .graphs {
   width: 100%;
@@ -386,9 +433,12 @@ body.is-pdf-active #app-container #app-single-container {
   display: flex;
   flex-direction: column;
   gap: 0;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
   padding: 0;
   display: none;
 }
@@ -411,9 +461,12 @@ body.is-pdf-active #app-container #app-single-container {
   display: flex;
   flex-direction: row;
   gap: 0;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
   padding: 12px;
 }
 #left-sidebar .left-sidebar-inner > .flex .nav-contents-container .header .fade-link > .flex {
@@ -444,9 +497,12 @@ body.is-pdf-active #app-container #app-single-container {
   display: flex;
   flex-direction: row;
   gap: 0;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
   position: relative;
   order: -1;
 }
@@ -473,39 +529,45 @@ body.is-pdf-active #app-container #app-single-container {
 #left-sidebar .left-sidebar-inner > .flex .create .new-page-link::after {
   content: "Search";
 }
-#left-sidebar .left-sidebar-inner > .flex .item, #left-sidebar .left-sidebar-inner > .flex .nav-contents-container .favorite-item > .flex, #left-sidebar .left-sidebar-inner > .flex .nav-contents-container .recent-item > .flex {
-  padding: 12px;
-  color: var(--ls-secondary-text-color);
-  font-weight: 400;
-  border-radius: 12px;
-  gap: 12px;
-}
-#left-sidebar .left-sidebar-inner > .flex .item:hover, #left-sidebar .left-sidebar-inner > .flex .nav-contents-container .favorite-item > .flex:hover, #left-sidebar .left-sidebar-inner > .flex .nav-contents-container .recent-item > .flex:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-  opacity: 1;
-}
-#left-sidebar .left-sidebar-inner > .flex .item.active, #left-sidebar .left-sidebar-inner > .flex .nav-contents-container .favorite-item > .active.flex, #left-sidebar .left-sidebar-inner > .flex .nav-contents-container .recent-item > .active.flex {
-  background-color: var(--ls-primary-background-color);
-  color: var(--ls-primary-text-color);
-  font-weight: 600;
-  transition: background-color 0ms;
-}
-#left-sidebar .left-sidebar-inner > .flex .item .ui__icon, #left-sidebar .left-sidebar-inner > .flex .nav-contents-container .favorite-item > .flex .ui__icon, #left-sidebar .left-sidebar-inner > .flex .nav-contents-container .recent-item > .flex .ui__icon {
-  margin: 0;
-}
 #left-sidebar .shade-mask {
   display: none;
 }
 #left-sidebar.is-open {
   display: flex;
 }
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 768px) {
   #left-sidebar.is-open {
     width: calc(var(--ls-left-sidebar-width) + 12px);
   }
 }
 
-@media only screen and (max-width: 640px) {
+.ext-sidebar-item, .cp__settings-inner > aside > ul > li.settings-menu-item, #left-sidebar .left-sidebar-inner > .flex .nav-contents-container .favorite-item > .flex,
+#left-sidebar .left-sidebar-inner > .flex .nav-contents-container .recent-item > .flex, #left-sidebar .left-sidebar-inner > .flex .item {
+  padding: 12px;
+  color: var(--ls-secondary-text-color);
+  font-weight: 400;
+  border-radius: 12px;
+  gap: 12px;
+  cursor: pointer;
+}
+.ext-sidebar-item:hover, .cp__settings-inner > aside > ul > li.settings-menu-item:hover, #left-sidebar .left-sidebar-inner > .flex .nav-contents-container .favorite-item > .flex:hover,
+#left-sidebar .left-sidebar-inner > .flex .nav-contents-container .recent-item > .flex:hover, #left-sidebar .left-sidebar-inner > .flex .item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  opacity: 1;
+}
+.ext-sidebar-item.active, .cp__settings-inner > aside > ul > li.active.settings-menu-item, #left-sidebar .left-sidebar-inner > .flex .nav-contents-container .favorite-item > .active.flex,
+#left-sidebar .left-sidebar-inner > .flex .nav-contents-container .recent-item > .active.flex, #left-sidebar .left-sidebar-inner > .flex .active.item {
+  background-color: var(--ls-primary-background-color);
+  color: var(--ls-primary-text-color);
+  font-weight: 600;
+  transition: background-color 0ms;
+}
+.ext-sidebar-item .ui__icon, .cp__settings-inner > aside > ul > li.settings-menu-item .ui__icon, #left-sidebar .left-sidebar-inner > .flex .nav-contents-container .favorite-item > .flex .ui__icon,
+#left-sidebar .left-sidebar-inner > .flex .nav-contents-container .recent-item > .flex .ui__icon, #left-sidebar .left-sidebar-inner > .flex .item .ui__icon {
+  margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
   .ls-left-sidebar-open {
     --ls-left-sidebar-width: 100%;
   }
@@ -536,9 +598,12 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
   display: flex;
   flex-direction: column;
   gap: 0;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
   background-color: transparent;
   display: none;
 }
@@ -555,9 +620,12 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
   display: flex;
   flex-direction: column;
   gap: 0;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
 }
 #right-sidebar #right-sidebar-container .cp__right-sidebar-scrollable {
   margin: 0;
@@ -568,9 +636,12 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
   margin: -16px;
   padding: 16px;
   overflow-y: scroll;
@@ -588,9 +659,12 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
   display: flex;
   flex-direction: row;
   gap: 0;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
   background-color: transparent;
   position: relative;
 }
@@ -603,9 +677,12 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
   height: max-content;
   overflow: visible;
 }
@@ -625,7 +702,8 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
 }
 
 /* ----------------------- PAGES ----------------------- */
-.page {
+main:not(.ls-wide-mode) .page,
+main:not(.ls-wide-mode) #journals .journal-item .journal.page {
   max-width: 85ch;
 }
 
@@ -639,9 +717,12 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
   display: flex;
   flex-direction: column;
   gap: 0;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
   align-items: center;
   margin: 0px;
   --journal-focused: 0;
@@ -651,7 +732,6 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
   max-width: -webkit-fill-available;
   height: fit-content;
   max-height: fit-content;
-  max-width: 85ch;
 }
 #journals .journal-item .journal.page > .flex {
   margin: 0;
@@ -662,9 +742,12 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
 }
 #journals .journal-item .journal.page > .flex .journal-title::before {
   content: "";
@@ -674,6 +757,12 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
   border-radius: 2px;
   background-color: var(--ls-active-primary-color);
   opacity: calc(var(--journal-focused) * 0.75 + 0.25);
+}
+#journals .journal-item .journal.page .lazy-visibility {
+  min-height: 0px !important;
+}
+#journals .journal-item .journal.page #today-queries {
+  margin-top: 0px;
 }
 #journals .journal-item:focus-within {
   --journal-focused: 1;
@@ -693,11 +782,14 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
   display: flex;
   flex-direction: column;
   gap: 0;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
 }
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 768px) {
   #main-content-container .page {
     padding: 2rem;
   }
@@ -720,59 +812,211 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
 .ui__modal-panel .panel-content .cp__palette-main {
   margin: 0px;
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search, .ui__modal-panel .panel-content .cp__palette-main {
   padding: 0;
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .input-wrap {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .input-wrap, .ui__modal-panel .panel-content .cp__palette-main .input-wrap {
   border-bottom: solid 1px var(--ls-border-color);
   height: fit-content;
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .input-wrap input {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .input-wrap input, .ui__modal-panel .panel-content .cp__palette-main .input-wrap input {
   color: var(--arc-content-primary);
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .input-wrap input::placeholder {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .input-wrap input::placeholder, .ui__modal-panel .panel-content .cp__palette-main .input-wrap input::placeholder {
   color: var(--arc-content-tertiary);
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .recent-search {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .recent-search,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap .recent-search, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .recent-search,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .recent-search {
   padding: 4px;
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .recent-search #ui__ac-inner > div:nth-child(6)::before {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .recent-search #ui__ac-inner > div:nth-child(6)::before,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap .recent-search #ui__ac-inner > div:nth-child(6)::before, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .recent-search #ui__ac-inner > div:nth-child(6)::before,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .recent-search #ui__ac-inner > div:nth-child(6)::before {
   content: "Recents";
   padding: 12px;
   display: block;
   color: var(--arc-content-secondary);
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .recent-search > .wrap {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .recent-search > .wrap,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap .recent-search > .wrap, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .recent-search > .wrap,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .recent-search > .wrap {
   padding: 12px;
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .recent-search > .wrap::before {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .recent-search > .wrap::before,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap .recent-search > .wrap::before, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .recent-search > .wrap::before,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .recent-search > .wrap::before {
   content: "Searches";
   font-size: 16px;
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .recent-search > .wrap > div:first-child {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .recent-search > .wrap > div:first-child,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap .recent-search > .wrap > div:first-child, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .recent-search > .wrap > div:first-child,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .recent-search > .wrap > div:first-child {
   display: none;
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner {
   display: flex;
   flex-direction: column;
   padding: 4px;
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link {
   background-color: transparent;
   padding: 12px;
   border-radius: 8px !important;
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link:hover {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .inline-grid.chosen,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .inline-grid.chosen, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .inline-grid.chosen,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .inline-grid.chosen {
+  background-color: transparent;
   color: var(--arc-content-primary);
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-item-text, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link:hover,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link:hover, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link:hover,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link:hover {
+  color: var(--arc-content-primary);
+}
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-item-text, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-item-text,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link > span > div.search-item, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-item-text, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link > span > div.search-item,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .search-item-text,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link > span > div.search-item {
   font-size: 16px;
   font-weight: normal;
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-item-text p, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result p, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline p, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item p, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-item-text span, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result span, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline span, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item span {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-item-text p, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result p,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result p,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result p, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result p,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result p, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline p, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item p,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-item-text span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result span,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-item-text p,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result p,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result p,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result p,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline p,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link > span > div.search-item p,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-item-text span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result span,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link > span > div.search-item span, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-item-text p, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result p, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result p,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result p,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result p, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline p,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline p,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline p, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item p,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link > span > div.search-item p,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item p,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-item-text span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result span,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result span,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result span,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result span,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline span,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline span,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline span,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item span,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link > span > div.search-item span,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item span,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .search-item-text p,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 p,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result p,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result p,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result p,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .search-result p,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline p,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link > span > div.search-item p,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .search-item-text span,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 span,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result span,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result span,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result span,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .search-result span,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline span,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link > span > div.search-item span {
   margin: 0;
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-item-icon, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-item-icon, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-item-icon,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-item-icon, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .search-item-icon,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg {
   margin: 0;
   padding-top: 4px;
   padding-left: 4px;
@@ -781,9 +1025,12 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
   display: flex;
   flex-direction: row;
   gap: 0;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
   background-color: var(--arc-background-overlay);
   width: 24px;
   height: 24px;
@@ -795,7 +1042,13 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
   justify-content: start;
   color: transparent;
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-item-icon::before, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg::before {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-item-icon::before, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg::before,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-item-icon::before,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg::before, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-item-icon::before, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg::before,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg::before,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg::before,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .search-item-icon::before,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg::before {
   font-size: 16px;
   font-family: tabler-icons;
   font-style: normal;
@@ -803,37 +1056,73 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
   -webkit-font-smoothing: antialiased;
   color: var(--arc-content-secondary);
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-item-layout, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-item-layout, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-item-layout,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link > span > div.search-item, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-item-layout, .ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link > span > div.search-item,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .search-item-layout,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .command-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .search-result,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link > span > div.items-baseline,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link > span > div.search-item {
   align-items: center;
   gap: 16px;
   padding: 0;
   margin: 0;
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link > span > div.search-item > svg {
   color: var(--arc-content-secondary);
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .type-icon {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .type-icon,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result .type-icon, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result .type-icon,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .search-result .type-icon {
   margin: 0;
   color: var(--arc-content-secondary);
   border-color: transparent;
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .type-icon::before {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .type-icon::before,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result .type-icon::before, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result .type-icon::before,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .search-result .type-icon::before {
   background-color: var(--arc-background-overlay);
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb a {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb a,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb a, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb a,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb a {
   color: var(--arc-content-secondary);
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb a:last-of-type {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb a:last-of-type,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb a:last-of-type, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb a:last-of-type,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb a:last-of-type {
   color: var(--arc-content-primary);
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb > span.mx-2 {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb > span.mx-2,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb > span.mx-2, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb > span.mx-2,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb > span.mx-2 {
   opacity: 1;
   color: transparent;
   display: inline-block;
   width: 16px;
   margin: 0 8px;
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb > span.mx-2::before {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb > span.mx-2::before,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb > span.mx-2::before, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb > span.mx-2::before,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .search-result .mb-1 .breadcrumb > span.mx-2::before {
   font-size: 16px;
   font-family: tabler-icons;
   font-style: normal;
@@ -842,19 +1131,27 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
   color: var(--arc-content-secondary);
   content: "\ea61";
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .font-medium {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link .search-result .font-medium,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link .search-result .font-medium, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link .search-result .font-medium,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link .search-result .font-medium {
   font-size: 16px;
   font-weight: normal;
   color: var(--arc-content-secondary);
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link:hover {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link:hover,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link:hover, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link:hover,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link:hover {
   background-color: var(--ls-menu-hover-color);
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link.chosen {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap #ui__ac-inner .menu-link.chosen,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap #ui__ac-inner .menu-link.chosen, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap #ui__ac-inner .menu-link.chosen,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap #ui__ac-inner .menu-link.chosen {
   background-color: var(--arc-background-overlay);
   color: var(--arc-content-primary);
 }
-.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .search-more {
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .search-results-wrap .search-more,
+.ui__modal-panel .panel-content .cp__palette-main .ls-search .command-results-wrap .search-more, .ui__modal-panel .panel-content .cp__palette-main .search-results-wrap .search-more,
+.ui__modal-panel .panel-content .cp__palette-main .command-results-wrap .search-more {
   padding: 12px;
   border-radius: 8px;
   margin: 4px;
@@ -882,11 +1179,15 @@ td {
   margin: 0px;
 }
 
-table, tr, td, th {
+table,
+tr,
+td,
+th {
   border: 1px solid var(--ls-border-color);
 }
 
-.custom-query .overflow-x-auto {
+.custom-query .overflow-x-auto,
+.table-wrapper {
   overflow-x: auto;
   margin: 1em 0;
   border-radius: 16px;
@@ -906,7 +1207,6 @@ table, tr, td, th {
 .tippy-tooltip {
   background-color: transparent;
 }
-
 .tippy-tooltip > .tippy-tooltip-content {
   border: 1px solid var(--ls-border-color);
   background-color: var(--ls-primary-background-color);
@@ -914,9 +1214,11 @@ table, tr, td, th {
   border-radius: 12px;
   box-shadow: 0px 0.5px 1.75px rgba(0, 0, 0, 0.039), 0px 1.85px 6.25px rgba(0, 0, 0, 0.19);
 }
-
 .tippy-tooltip > .arrow-regular {
   display: none;
+}
+.tippy-popper .tippy-tooltip.monospace-theme {
+  font-family: Jetbrains Mono, Fira Code, Monaco, Menlo, Consolas, COURIER NEW, monospace;
 }
 
 .tippy-wrapper {
@@ -928,13 +1230,16 @@ table, tr, td, th {
   margin: 0;
 }
 
-.cp__settings-main > header {
-  padding: 16px;
+.cp__plugins-page {
+  width: -webkit-fill-available;
 }
-
-/* ----------------------- SETTINGS ----------------------- */
-.cp__settings-inner > aside > ul {
-  padding: 8px;
+.cp__plugins-page .cp__plugins-item-lists-inner {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media only screen and (max-width: 768px) {
+  .cp__plugins-page .cp__plugins-item-lists-inner {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }
 
 /* ----------------------- PDF ----------------------- */
@@ -1058,19 +1363,24 @@ table, tr, td, th {
 }
 
 /* ----------------------- BLOCKS ----------------------- */
-.editor-inner .uniline-block:is(.h1, .h2), .ls-block :is(h1, h2) {
+.editor-inner .uniline-block:is(.h1, .h2),
+.ls-block :is(h1, h2) {
   border-bottom: none;
 }
 
-.form-checkbox {
+html[data-theme=light] .form-checkbox,
+html[data-theme=dark] .form-checkbox {
   border: solid 2px var(--ls-page-checkbox-border-color);
   border-radius: 2px;
 }
-.form-checkbox:checked {
+html[data-theme=light] .form-checkbox:checked,
+html[data-theme=dark] .form-checkbox:checked {
   background-color: var(--ls-page-checkbox-checked-color);
+  border-color: transparent;
 }
-.form-checkbox:focus {
-  border-color: var(--ls-page-checkbox-border-colorc);
+html[data-theme=light] .form-checkbox:focus,
+html[data-theme=dark] .form-checkbox:focus {
+  border-color: var(--ls-page-checkbox-border-color);
 }
 
 a.tag {
@@ -1086,7 +1396,8 @@ a.tag:hover {
   color: var(--arc-content-primary);
 }
 
-h1 a.tag, .tag {
+h1 a.tag,
+.tag {
   font-size: inherit;
   font-weight: 600;
 }
@@ -1172,18 +1483,46 @@ blockquote::before {
   padding: 4px;
   border-radius: var(--dropdown-border-radius);
 }
-.dropdown-wrapper .menu-links-wrapper .menu-link {
+.dropdown-wrapper .menu-links-wrapper .menu-link, .dropdown-wrapper .menu-links-wrapper .menu-link.extra-item {
   padding: 10px 12px;
   border-radius: calc(var(--dropdown-border-radius) - 4px);
 }
-.dropdown-wrapper .menu-links-wrapper .menu-link > .flex-1 > .items-center {
+.dropdown-wrapper .menu-links-wrapper .menu-link > .flex-1 > .items-center, .dropdown-wrapper .menu-links-wrapper .menu-link.extra-item > .flex-1 > .items-center {
   gap: 8px;
 }
-.dropdown-wrapper .menu-links-wrapper .menu-link > .flex-1 > .items-center span.ui__icon {
+.dropdown-wrapper .menu-links-wrapper .menu-link > .flex-1 > .items-center span.ui__icon, .dropdown-wrapper .menu-links-wrapper .menu-link.extra-item > .flex-1 > .items-center span.ui__icon {
   opacity: 0.5;
 }
-.dropdown-wrapper .menu-links-wrapper .menu-link > .flex-1 > .items-center .title-wrap {
+.dropdown-wrapper .menu-links-wrapper .menu-link > .flex-1 > .items-center .title-wrap, .dropdown-wrapper .menu-links-wrapper .menu-link.extra-item > .flex-1 > .items-center .title-wrap {
   margin: 0 !important;
+}
+
+/* ----------------------- SETTINGS ----------------------- */
+.cp__settings-main > header {
+  padding: 16px;
+}
+
+.cp__settings-inner > aside {
+  width: 196px;
+}
+.cp__settings-inner > aside > ul {
+  padding: 8px;
+}
+.cp__settings-inner > aside > ul > li.settings-menu-item a.settings-menu-link {
+  padding: 0;
+  gap: 12px;
+  color: inherit;
+}
+.cp__settings-inner > aside > ul > li.settings-menu-item strong {
+  padding-left: 0;
+}
+.cp__settings-inner > article {
+  width: -webkit-fill-available;
+  margin: 0;
+}
+.cp__settings-inner > article > .panel-wrap {
+  width: -webkit-fill-available;
+  min-width: 0;
 }
 
 /* ----------------------- MISC ----------------------- */
@@ -1206,7 +1545,11 @@ blockquote::before {
   display: none;
 }
 
-.button, html[data-theme=light] a.button, .cp__header a, .cp__header button, .cp__right-sidebar-topbar button {
+.button,
+html[data-theme=light] a.button,
+.cp__header a,
+.cp__header button,
+.cp__right-sidebar-topbar button {
   opacity: 1;
   color: var(--arc-content-secondary);
 }
@@ -1215,7 +1558,8 @@ a {
   color: inherit;
 }
 
-a.is-pdf, a.external-link {
+a.is-pdf,
+a.external-link {
   color: var(--ls-link-text-color);
 }
 
@@ -1225,6 +1569,21 @@ a.is-pdf, a.external-link {
 
 .graph {
   height: 100% !important;
+}
+
+body[data-page=graph] .cp__sidebar-main-content > div {
+  height: 100%;
+}
+
+.CodeMirror,
+.extensions__code-calc-output-line,
+:not(pre) > code {
+  font-family: Jetbrains Mono, Fira Code, Monaco, Menlo, Consolas, COURIER NEW, monospace;
+}
+
+.ls-block[haschild]:focus-within > div:focus-within > .block-content-wrapper::before {
+  /*border-color: var(--ls-block-bullet-active-color)*/
+  border-color: transparent;
 }
 
 /*# sourceMappingURL=custom.css.map */

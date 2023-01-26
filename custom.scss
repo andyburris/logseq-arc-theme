@@ -8,10 +8,17 @@ $arc-content-max-width: 85ch;
 $arc-content-padding-desktop: 48px;
 $arc-content-padding-mobile: 2rem;
 $arc-body-font-size: 16px;
+$arc-monospace-font: Jetbrains Mono, Fira Code, Monaco, Menlo, Consolas, COURIER NEW, monospace;
 
-@mixin devices ($breakpoint) { //the name of the mixin is devices
-  @if $breakpoint == mobile {
-    @media only screen and (max-width: 640px) {
+@mixin devices ($breakpoint) {
+  @if $breakpoint ==small {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint ==medium {
+    @media only screen and (max-width: 1024) {
       @content;
     }
   }
@@ -25,6 +32,7 @@ $arc-body-font-size: 16px;
   display: flex;
   flex-direction: column;
 }
+
 @mixin fill($fixed-width: -webkit-fill-available, $fixed-height: -webkit-fill-available) {
   width: $fixed-width;
   max-width: $fixed-width;
@@ -32,13 +40,12 @@ $arc-body-font-size: 16px;
   max-height: $fixed-height;
 }
 
-@mixin parent(
-  $direction: row,
-  $top: 0, 
-  $left: $top, 
-  $bottom: $top, 
-  $right: $left, 
-  $gap: 0, 
+@mixin parent($direction: row,
+  $top: 0,
+  $left: $top,
+  $bottom: $top,
+  $right: $left,
+  $gap: 0,
 ) {
   margin: 0;
   padding-top: $top;
@@ -48,9 +55,12 @@ $arc-body-font-size: 16px;
   display: flex;
   flex-direction: $direction;
   gap: $gap;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
 }
 
 @mixin fix-child-shadows($offset: 16px) {
@@ -77,7 +87,8 @@ $arc-body-font-size: 16px;
   --ls-tag-text-opacity: 1;
 }
 
-.white-theme, html[data-theme=light] {
+.white-theme,
+html[data-theme=light] {
   --arc-background-shell: #F2F2F2;
   --arc-background-card: #FFFFFF;
   --arc-background-overlay: rgba(0, 0, 0, 0.05);
@@ -89,7 +100,8 @@ $arc-body-font-size: 16px;
   --arc-accent-primary: hsla(206, 75%, 50%, 0.98); //9
 }
 
-.dark-theme, html[data-theme=dark] {
+.dark-theme,
+html[data-theme=dark] {
   --arc-background-shell: #191919;
   --arc-background-card: #272727;
   --arc-background-overlay: rgba(255, 255, 255, 0.07);
@@ -101,7 +113,10 @@ $arc-body-font-size: 16px;
   --arc-accent-primary: hsla(206, 75%, 50%, 1);
 }
 
-html[data-theme=dark], html[data-theme=light], #root > div, .theme-inner {
+html[data-theme=dark],
+html[data-theme=light],
+#root>div,
+.theme-inner {
   --ls-primary-background-color: var(--arc-background-card);
   --ls-secondary-background-color: var(--arc-background-shell);
   --ls-tertiary-background-color: var(--arc-background-overlay);
@@ -136,8 +151,8 @@ html[data-theme=dark], html[data-theme=light], #root > div, .theme-inner {
 
 @media (min-width: 1600px) {
   :root {
-	/* --ls-main-content-max-width: 1000px; */
-	--ls-main-content-max-width: 100%;
+    /* --ls-main-content-max-width: 1000px; */
+    --ls-main-content-max-width: 100%;
   }
 }
 
@@ -152,12 +167,16 @@ html[data-theme=dark], html[data-theme=light], #root > div, .theme-inner {
   #left-container {
     @include parent(column, $gap: $arc-card-gap);
     @include fill;
-    &.overflow-hidden { overflow: inherit; }
+
+    &.overflow-hidden {
+      overflow: inherit;
+    }
 
     #head {
       @include row;
-      
-      .l, .r {
+
+      .l,
+      .r {
         @include parent(row);
       }
     }
@@ -175,12 +194,13 @@ html[data-theme=dark], html[data-theme=light], #root > div, .theme-inner {
         background-color: var(--ls-primary-background-color);
         border-radius: $arc-card-corner-radius;
         box-shadow: $arc-card-shadow;
-      
-        .cp__sidebar-main-content > .mx-auto {
+
+        .cp__sidebar-main-content>.mx-auto {
           @include fill;
           @include parent(column);
           align-items: center;
-          & > div {
+
+          &>div {
             width: -webkit-fill-available;
           }
         }
@@ -189,36 +209,36 @@ html[data-theme=dark], html[data-theme=light], #root > div, .theme-inner {
   }
 }
 
-#head > .flex {
-    /* opacity: 0%; */
-    /* transition: opacity 150ms ease-in-out; */
+#head>.flex {
+  /* opacity: 0%; */
+  /* transition: opacity 150ms ease-in-out; */
 }
 
-cp_header > .r {
+cp_header>.r {
   padding-right: 0px;
 }
 
-#head:hover > .flex {
-    /* opacity: 100%; */
+#head:hover>.flex {
+  /* opacity: 100%; */
 }
 
 #head {
-    /* height: $arc-card-gap; */
-    /* transition: height 150ms ease-in-out; */
+  /* height: $arc-card-gap; */
+  /* transition: height 150ms ease-in-out; */
 }
 
 #head:hover {
-    /* height: calc(var(--ls-headbar-height) + var(--ls-headbar-inner-top-padding)); */
+  /* height: calc(var(--ls-headbar-height) + var(--ls-headbar-inner-top-padding)); */
 }
 
 /* You can also add other styles below to override the default theme values */
 
-.tippy-tooltip > .tippy-tooltip-content {
+.tippy-tooltip>.tippy-tooltip-content {
   border: 1px solid var(--ls-primary-text-color);
 }
 
 hr {
-    margin: 0.8em;
+  margin: 0.8em;
 }
 
 .github-alert {
@@ -226,19 +246,20 @@ hr {
 }
 
 .p-2.rounded-md.shadow-xs.bg-base-3.flex.flex-col.sync-content {
-    font-size: .5em;
+  font-size: .5em;
 }
 
 .block-properties {
   border-radius: 4px;
 }
 
-.shadow-md, #left-sidebar .item.active {
+.shadow-md,
+.ext-sidebar-item.active {
   box-shadow: $arc-card-shadow;
 }
 
 @media (min-width: 480px) {
-  .cp__sidebar-left-layout.is-open + #main-content-container {
+  .cp__sidebar-left-layout.is-open+#main-content-container {
     margin: 0 auto;
   }
 }
@@ -249,6 +270,7 @@ hr {
 
 body.is-pdf-active #app-container {
   padding-left: $arc-card-gap;
+
   #app-single-container {
     display: block;
     order: -1;
@@ -271,12 +293,13 @@ body.is-pdf-active #app-container {
     @include fix-child-shadows;
     background-color: transparent;
 
-    & > .flex {
+    &>.flex {
       @include fill;
       @include parent(column, $gap: 2 * $arc-sidebar-gap);
       @include fix-child-shadows;
 
-      nav.flex { //sidebar items
+      nav.flex {
+        //sidebar items
         @include fill($fixed-width: var(--ls-left-sidebar-width), $fixed-height: 100%); //not sure why fill-available doesn't work here
         @include parent(column-reverse, $gap: $arc-sidebar-gap);
         justify-content: space-between;
@@ -290,7 +313,7 @@ body.is-pdf-active #app-container {
 
           .graphs {
             width: 100%;
-          
+
             #repo-switch {
               display: flex;
               align-items: center;
@@ -316,7 +339,7 @@ body.is-pdf-active #app-container {
         .favorites {
           display: var(--display-favorite-pages);
         }
-        
+
         .recent {
           display: var(--display-recent-pages);
         }
@@ -326,17 +349,19 @@ body.is-pdf-active #app-container {
           @include parent;
           padding: 12px;
 
-          .fade-link > .flex {
+          .fade-link>.flex {
             color: var(--arc-content-secondary);
 
             .ui__icon {
               display: none;
             }
+
             span.flex-1 {
               margin: 0;
               font-size: inherit;
               font-weight: inherit;
               text-transform: lowercase;
+
               &::first-letter {
                 text-transform: capitalize;
               }
@@ -344,8 +369,9 @@ body.is-pdf-active #app-container {
           }
         }
 
-        .favorite-item > .flex, .recent-item > .flex {
-          @extend .item;
+        .favorite-item>.flex,
+        .recent-item>.flex {
+          @extend .ext-sidebar-item;
         }
       }
 
@@ -354,27 +380,28 @@ body.is-pdf-active #app-container {
         @include parent;
         position: relative;
         order: -1;
-        
+
         .new-page-link {
           @include fill;
           // background-color: inherit;
           background-color: var(--arc-background-overlay);
           box-shadow: none;
-          //@extend .item; //needed to get hover to work
+          //@extend .ext-sidebar-item; //needed to get hover to work
 
-          & > .ls-icon-circle-plus {
+          &>.ls-icon-circle-plus {
             &::before {
               font-size: 18px;
               content: '\eb1c';
               font-family: tabler-icons;
               -webkit-font-smoothing: antialiased;
             }
-            & > svg {
+
+            &>svg {
               display: none;
             }
           }
 
-          & > span.flex-1 {
+          &>span.flex-1 {
             display: none;
           }
 
@@ -386,27 +413,7 @@ body.is-pdf-active #app-container {
       }
 
       .item {
-        padding: 12px;
-        color: var(--ls-secondary-text-color);
-        font-weight: 400;
-        border-radius: $arc-card-corner-radius;
-        gap: 12px;
-    
-        &:hover {
-          background-color: rgba(0, 0, 0, 0.05);
-          opacity: 1;
-        }
-    
-        &.active {
-          background-color: var(--ls-primary-background-color);
-          color: var(--ls-primary-text-color);
-          font-weight: 600;
-          transition: background-color 0ms;
-        }
-
-        .ui__icon {
-          margin: 0;
-        }
+        @extend .ext-sidebar-item
       }
     }
   }
@@ -416,18 +423,45 @@ body.is-pdf-active #app-container {
   }
 
   &.is-open {
-    @include devices(mobile) {
+    @include devices(small) {
       width: calc(var(--ls-left-sidebar-width) + $arc-card-gap);
     }
+
     display: flex;
   }
 }
 
-.ls-left-sidebar-open { 
-  @include devices(mobile) {
+.ext-sidebar-item {
+  padding: 12px;
+  color: var(--ls-secondary-text-color);
+  font-weight: 400;
+  border-radius: $arc-card-corner-radius;
+  gap: 12px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    opacity: 1;
+  }
+
+  &.active {
+    background-color: var(--ls-primary-background-color);
+    color: var(--ls-primary-text-color);
+    font-weight: 600;
+    transition: background-color 0ms;
+  }
+
+  .ui__icon {
+    margin: 0;
+  }
+}
+
+.ls-left-sidebar-open {
+  @include devices(small) {
     --ls-left-sidebar-width: 100%;
+
     #app-container #left-container #main-container #main-content-container {
-        display: none;
+      display: none;
     }
 
     #left-sidebar .left-sidebar-inner .flex {
@@ -447,7 +481,7 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
   @include parent(column);
   background-color: transparent;
   display: none;
-  
+
   #right-sidebar-container {
     @include fill;
     @include parent(column);
@@ -482,17 +516,21 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
   }
 
   .resizer {
-    &:focus, &:hover {
+
+    &:focus,
+    &:hover {
       //background-color: var(--arc-background-overlay);
       background-color: transparent;
     }
+
     width: $arc-card-gap;
     left: -$arc-card-gap;
   }
 }
 
 /* ----------------------- PAGES ----------------------- */
-.page {
+main:not(.ls-wide-mode) .page,
+main:not(.ls-wide-mode) #journals .journal-item .journal.page {
   max-width: $arc-content-max-width;
 }
 
@@ -507,31 +545,41 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
     --journal-focused: 0;
 
     .journal.page {
-        @include fill($fixed-height: fit-content);
-        max-width: $arc-content-max-width;
-        
-        & > .flex { //title and items
-          @include parent(column, $gap: 16px);
-          
-          .journal-title { 
-            &::before {
-              content: '';
-              display: block;
-              height: 4px;
-              width: 32px;
-              border-radius: 2px;
-              background-color: var(--ls-active-primary-color);
-              opacity: calc((var(--journal-focused) * 0.75) + 0.25);
-            }
+      @include fill($fixed-height: fit-content);
+      // max-width: $arc-content-max-width;
+
+      &>.flex {
+        //title and items
+        @include parent(column, $gap: 16px);
+
+        .journal-title {
+          &::before {
+            content: '';
+            display: block;
+            height: 4px;
+            width: 32px;
+            border-radius: 2px;
+            background-color: var(--ls-active-primary-color);
+            opacity: calc((var(--journal-focused) * 0.75) + 0.25);
           }
         }
+      }
+
+      .lazy-visibility {
+        min-height: 0px !important;
+      }
+
+      #today-queries {
+        margin-top: 0px;
+      }
     }
 
     &:focus-within {
       --journal-focused: 1;
     }
   }
-  & > div > .w-full {
+
+  &>div>.w-full {
     max-width: 85ch;
     margin: auto;
     padding: 48px;
@@ -541,7 +589,10 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
 
 #main-content-container .page {
   @include parent(column, $arc-content-padding-desktop);
-  @include devices(mobile) { padding: $arc-content-padding-mobile; }
+
+  @include devices(small) {
+    padding: $arc-content-padding-mobile;
+  }
 
   .title {
     margin-bottom: 0px;
@@ -562,69 +613,82 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
 
     .cp__palette-main {
       margin: 0px;
-      
-      .ls-search {
+
+      .ls-search,
+      & {
         padding: 0;
 
         .input-wrap {
           border-bottom: solid 1px var(--ls-border-color);
           height: fit-content;
-  
+
           input {
             color: var(--arc-content-primary);
+
             &::placeholder {
               color: var(--arc-content-tertiary);
             }
           }
         }
 
-        .search-results-wrap {
+        .search-results-wrap,
+        .command-results-wrap {
           .recent-search {
             padding: 4px;
-  
-            #ui__ac-inner > div:nth-child(6)::before { // container for first recent page after recent searches
+
+            #ui__ac-inner>div:nth-child(6)::before {
+              // container for first recent page after recent searches
               content: "Recents";
               padding: 12px;
               display: block;
               color: var(--arc-content-secondary);
             }
-            & > .wrap { // recent search: header
+
+            &>.wrap {
+              // recent search: header
               padding: 12px;
-  
+
               &::before {
                 content: "Searches";
                 font-size: $arc-body-font-size;
               }
-  
-              & > div:first-child {
+
+              &>div:first-child {
                 display: none;
               }
             }
           }
-  
+
           #ui__ac-inner {
             display: flex;
             flex-direction: column;
             padding: 4px;
-            
+
             .menu-link {
               background-color: transparent;
               padding: 12px;
               border-radius: 8px !important;
-  
+
+              .inline-grid.chosen {
+                //inner content of command palette item
+                background-color: transparent;
+                color: var(--arc-content-primary);
+              }
+
               &:hover {
                 color: var(--arc-content-primary);
               }
-  
+
               .search-item-text {
                 font-size: $arc-body-font-size;
-                font-weight: normal;  
-  
-                p, span {
+                font-weight: normal;
+
+                p,
+                span {
                   margin: 0;
                 }
               }
-  
+
               .search-item-icon {
                 @include parent($top: 4px);
                 background-color: var(--arc-background-overlay);
@@ -637,6 +701,7 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
                 align-items: center;
                 justify-content: start;
                 color: transparent;
+
                 &::before {
                   font-size: 16px;
                   font-family: tabler-icons;
@@ -646,59 +711,65 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
                   color: var(--arc-content-secondary);
                 }
               }
-  
+
               .search-item-layout {
                 align-items: center;
                 gap: 16px;
                 padding: 0;
                 margin: 0;
               }
-      
-              & > span > div.search-item { // recent search result
+
+              &>span>div.search-item {
+                // recent search result
                 @extend .search-item-layout;
                 @extend .search-item-text;
-  
-                & > svg { // search icon
+
+                &>svg {
+                  // search icon
                   @extend .search-item-icon;
                   color: var(--arc-content-secondary);
                 }
-              } 
-  
-              & > span > div.items-baseline { // recent page result
+              }
+
+              &>span>div.items-baseline {
+                // recent page result
                 @extend .search-item-layout;
                 @extend .search-item-text;
               }
-  
+
               .search-result {
                 @extend .search-item-layout;
                 @extend .search-item-text;
-  
+
                 .type-icon {
                   margin: 0;
                   color: var(--arc-content-secondary);
                   border-color: transparent;
-                   &::before {
+
+                  &::before {
                     background-color: var(--arc-background-overlay);
-                   }
+                  }
                 }
-  
+
                 .mb-1 {
                   @extend .search-item-text;
+
                   .breadcrumb {
                     a {
                       color: var(--arc-content-secondary);
+
                       &:last-of-type {
                         color: var(--arc-content-primary);
                       }
                     }
-    
-                    & > span.mx-2 {
+
+                    &>span.mx-2 {
                       opacity: 1;
                       color: transparent;
                       display: inline-block;
                       width: 16px;
                       margin: 0 8px;
-    
+
                       &::before {
                         font-size: 16px;
                         font-family: tabler-icons;
@@ -711,24 +782,25 @@ body:not(.is-pdf-active) .ls-left-sidebar-open #search-button {
                     }
                   }
                 }
+
                 .font-medium {
                   font-size: $arc-body-font-size;
                   font-weight: normal;
                   color: var(--arc-content-secondary);
                 }
               }
-      
+
               &:hover {
                 background-color: var(--ls-menu-hover-color);
               }
-  
+
               &.chosen {
                 background-color: var(--arc-background-overlay);
                 color: var(--arc-content-primary);
               }
             }
           }
-  
+
           .search-more {
             padding: 12px;
             border-radius: 8px;
@@ -756,48 +828,56 @@ td {
 }
 
 .table-auto {
-    border-radius: 16px;
-    border-collapse: collapse;
-    overflow: hidden;
-    margin: 0px;
+  border-radius: 16px;
+  border-collapse: collapse;
+  overflow: hidden;
+  margin: 0px;
 }
 
-table, tr, td, th {
-    border: 1px solid var(--ls-border-color);
+table,
+tr,
+td,
+th {
+  border: 1px solid var(--ls-border-color);
 }
 
-.custom-query .overflow-x-auto {
-    overflow-x: auto;
-    margin: 1em 0;
-    border-radius: 16px;
-    border: 1px solid var(--arc-content-divider);
+.custom-query .overflow-x-auto,
+.table-wrapper {
+  overflow-x: auto;
+  margin: 1em 0;
+  border-radius: 16px;
+  border: 1px solid var(--arc-content-divider);
 }
 
-.custom-query > .flex > .initial > div > .flex {
-    margin-top: -1.5rem;
-    justify-content: flex-end;
+.custom-query>.flex>.initial>div>.flex {
+  margin-top: -1.5rem;
+  justify-content: flex-end;
 }
 
 .custom-query-title {
-    justify-content: flex-start;
+  justify-content: flex-start;
 }
 
 
 /* ----------------------- POPUP ----------------------- */
 .tippy-tooltip {
   background-color: transparent;
-}
 
-.tippy-tooltip > .tippy-tooltip-content {
-  border: 1px solid var(--ls-border-color);
-  background-color: var(--ls-primary-background-color);
-  border: none;
-  border-radius: 12px;
-  box-shadow: $arc-card-shadow;
-}
+  &>.tippy-tooltip-content {
+    border: 1px solid var(--ls-border-color);
+    background-color: var(--ls-primary-background-color);
+    border: none;
+    border-radius: 12px;
+    box-shadow: $arc-card-shadow;
+  }
 
-.tippy-tooltip > .arrow-regular {
-  display: none;
+  &>.arrow-regular {
+    display: none;
+  }
+
+  .tippy-popper &.monospace-theme {
+    font-family: $arc-monospace-font;
+  }
 }
 
 .tippy-wrapper {
@@ -805,24 +885,37 @@ table, tr, td, th {
   border-radius: 12px;
 }
 
-.panel-content > div {
+.panel-content>div {
   margin: 0;
 }
 
-.cp__settings-main > header {
-  padding: 16px;
+.cp__plugins-page {
+  width: -webkit-fill-available;
+
+  .cp__plugins-item-lists-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    @include devices(small) {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  }
 }
 
-/* ----------------------- SETTINGS ----------------------- */
-.cp__settings-inner > aside > ul {
-  padding: 8px;
-}
 
 /* ----------------------- PDF ----------------------- */
 #pdf-layout-container {
-  &[data-theme=light] { background-color: transparent; }
-  &[data-theme=warm] { background-color: transparent; }
-  &[data-theme=dark] { background-color: transparent; }
+  &[data-theme=light] {
+    background-color: transparent;
+  }
+
+  &[data-theme=warm] {
+    background-color: transparent;
+  }
+
+  &[data-theme=dark] {
+    background-color: transparent;
+  }
+
   overflow: visible;
   height: calc(100% - $arc-action-bar-height - $arc-card-gap);
   position: relative;
@@ -841,9 +934,9 @@ table, tr, td, th {
         padding: 0px;
         height: fit-content;
 
-        & > .inner {
+        &>.inner {
 
-          & > .buttons {
+          &>.buttons {
             background-color: transparent;
             width: 100%;
 
@@ -868,22 +961,24 @@ table, tr, td, th {
 
             & .pager {
               order: -3;
-              
+
               .nu {
                 opacity: 1;
                 gap: 4px;
+
                 input {
                   border-radius: 4px;
                   background-color: var(--ls-tertiary-background-color);
                   color: var(--ls-primary-text-color);
                 }
+
                 small {
                   font-size: 100%;
                   color: var(--ls-tertiary-text-color);
                 }
               }
 
-              & > .ct {
+              &>.ct {
                 display: var(--display-pdf-arrows);
               }
             }
@@ -897,8 +992,10 @@ table, tr, td, th {
               margin-right: auto;
             }
 
-            & > .button:last-child {  //Close button
+            &>.button:last-child {
+              //Close button
               font-size: 0;
+
               &::after {
                 font-size: 18px;
                 content: '\eb55';
@@ -957,23 +1054,28 @@ table, tr, td, th {
   }
 
   label.blank {
-      display: none;
+    display: none;
   }
 }
 
 /* ----------------------- BLOCKS ----------------------- */
-.editor-inner .uniline-block:is(.h1,.h2), .ls-block :is(h1,h2) {
+.editor-inner .uniline-block:is(.h1, .h2),
+.ls-block :is(h1, h2) {
   border-bottom: none;
 }
 
-.form-checkbox {
+html[data-theme=light] .form-checkbox,
+html[data-theme=dark] .form-checkbox {
   border: solid 2px var(--ls-page-checkbox-border-color);
   border-radius: 2px;
+
   &:checked {
     background-color: var(--ls-page-checkbox-checked-color);
+    border-color: transparent;
   }
+
   &:focus {
-    border-color: var(--ls-page-checkbox-border-colorc);
+    border-color: var(--ls-page-checkbox-border-color);
   }
 }
 
@@ -991,7 +1093,8 @@ a.tag {
   }
 }
 
-h1 a.tag, .tag {
+h1 a.tag,
+.tag {
   font-size: inherit;
   font-weight: 600;
 }
@@ -1007,8 +1110,8 @@ h1.title {
 
 .admonition-item {
   border: solid transparent 0px;
-  background: 
-    linear-gradient(var(--ls-page-blockquote-border-color), var(--ls-page-blockquote-border-color)) left/ 4px no-repeat, 
+  background:
+    linear-gradient(var(--ls-page-blockquote-border-color), var(--ls-page-blockquote-border-color)) left/ 4px no-repeat,
     var(--arc-background-overlay);
   border-radius: 8px;
   display: flex;
@@ -1033,10 +1136,11 @@ blockquote {
   }
 }
 
-.cp__fenced-code-block { 
+.cp__fenced-code-block {
   .CodeMirror {
     border-radius: 8px;
   }
+
   .extensions__code-lang {
     background: var(--arc-background-overlay);
     border-top-right-radius: 8px;
@@ -1096,16 +1200,17 @@ blockquote {
     padding: 4px;
     border-radius: var(--dropdown-border-radius);
 
-    .menu-link {
+    .menu-link, .menu-link.extra-item {
       padding: 10px 12px;
       border-radius: calc(var(--dropdown-border-radius) - 4px);
 
-      & > .flex-1 > .items-center {
+      &>.flex-1>.items-center {
         gap: 8px;
-        
+
         span.ui__icon {
           opacity: .5;
         }
+
         .title-wrap {
           margin: 0 !important;
         }
@@ -1114,10 +1219,49 @@ blockquote {
   }
 }
 
+/* ----------------------- SETTINGS ----------------------- */
+.cp__settings-main>header {
+  padding: 16px;
+}
+
+.cp__settings-inner {
+
+  &>aside {
+    width: 196px;
+
+    &>ul {
+      padding: 8px;
+
+      &>li.settings-menu-item {
+        @extend .ext-sidebar-item;
+
+        a.settings-menu-link {
+          padding: 0;
+          gap: 12px;
+          color: inherit;
+        }
+
+        strong {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  &>article {
+    width: -webkit-fill-available;
+    margin: 0;
+
+    &>.panel-wrap {
+      width: -webkit-fill-available;
+      min-width: 0;
+    }
+  }
+}
 
 /* ----------------------- MISC ----------------------- */
 
-.sidebar-item > .flex {
+.sidebar-item>.flex {
   gap: 1em;
 }
 
@@ -1136,7 +1280,11 @@ blockquote {
   display: none;
 }
 
-.button, html[data-theme=light] a.button, .cp__header a, .cp__header button, .cp__right-sidebar-topbar button {
+.button,
+html[data-theme=light] a.button,
+.cp__header a,
+.cp__header button,
+.cp__right-sidebar-topbar button {
   opacity: 1;
   color: var(--arc-content-secondary);
 }
@@ -1145,7 +1293,8 @@ a {
   color: inherit;
 }
 
-a.is-pdf, a.external-link {
+a.is-pdf,
+a.external-link {
   color: var(--ls-link-text-color);
 }
 
@@ -1155,4 +1304,20 @@ a.is-pdf, a.external-link {
 
 .graph {
   height: 100% !important;
+}
+
+body[data-page="graph"] .cp__sidebar-main-content>div {
+  height: 100%;
+}
+
+.CodeMirror,
+.extensions__code-calc-output-line,
+:not(pre)>code {
+  font-family: $arc-monospace-font;
+}
+
+//TODO remove once logseq-dev-theme is updated
+.ls-block[haschild]:focus-within>div:focus-within>.block-content-wrapper::before {
+  /*border-color: var(--ls-block-bullet-active-color)*/
+  border-color: transparent
 }

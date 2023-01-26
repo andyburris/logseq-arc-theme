@@ -1,7 +1,7 @@
 {
     "name": "Arc Theme",
     "author": "@andyburris",
-    "version": "0.1",
+    "version": "0.3",
     "description": "A Logseq theme based on Arc by The Browser Company",
     "logseq": {
       "themes": [
